@@ -10,7 +10,7 @@
     
     <title>
         
-            关于我 | 
+            Mac下配置属于你的环境变量 | 
         
         aduroidpc’s Blog
     </title>
@@ -32,7 +32,7 @@
     <meta name="theme-color" content="#0097A7">
     <meta name="author" content="阿杜">
     <meta name="description" content="null">
-    <meta name="keywords" content="null">
+    <meta name="keywords" content="null,mac">
 
     <!-- Favicons -->
     <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
@@ -58,9 +58,9 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="https://aduroidpc.github.io">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="关于我 | aduroidpc’s Blog">
+    <meta property="og:title" content="Mac下配置属于你的环境变量 | aduroidpc’s Blog">
     <meta property="og:description" content="null">
-    
+    <meta property="og:article:tag" content="mac"> 
 
     <!--[if lte IE 9]>
         <link rel="stylesheet" href="/css/ie-blocker.css">
@@ -229,6 +229,41 @@
 
                     <!-- Post TOC -->
 
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+    <!-- Left aligned menu below button -->
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#引言"><span class="post-toc-number">1.</span> <span class="post-toc-text">引言</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#一、启动终端iTerm"><span class="post-toc-number">2.</span> <span class="post-toc-text">一、启动终端iTerm</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#二、编辑-bash-profile文件"><span class="post-toc-number">3.</span> <span class="post-toc-text">二、编辑 .bash_profile文件</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#三、保存并关闭"><span class="post-toc-number">4.</span> <span class="post-toc-text">三、保存并关闭</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#四、更新配置的环境变量"><span class="post-toc-number">5.</span> <span class="post-toc-text">四、更新配置的环境变量</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#五、测试"><span class="post-toc-number">6.</span> <span class="post-toc-text">五、测试</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#六、end"><span class="post-toc-number">7.</span> <span class="post-toc-text">六、end</span></a></li></ol>
+
+        <!--
+        <li class="mdl-menu__item">
+            Some Action
+        </li>
+        -->
+    </ul>
+
+
+
 
 <!-- Layouts -->
 
@@ -255,7 +290,7 @@
         
     
             <p class="article-headline-p">
-                关于我
+                Mac下配置属于你的环境变量
             </p>
         </div>
 
@@ -274,7 +309,7 @@
     <!-- Author Name & Date -->
     <div>
         <strong>阿杜</strong>
-        <span>5月 26, 2017</span>
+        <span>6月 06, 2017</span>
     </div>
 
     <div class="section-spacer"></div>
@@ -298,7 +333,7 @@
     </button>
     <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
         <li class="mdl-menu__item">
-        
+        <a class="post_tag-link" href="/tags/mac/">mac</a>
     </ul>
     
 
@@ -314,7 +349,7 @@
 
     <!-- Share Weibo -->
     
-        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=关于我&url=https://aduroidpc.github.io//about/index.html&pic=&searchPic=false&style=simple" target="_blank">
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=Mac下配置属于你的环境变量&url=https://aduroidpc.github.io//2017/06/06/Mac下配置属于你的环境变量/index.html&pic=&searchPic=false&style=simple" target="_blank">
             <li class="mdl-menu__item">
                 分享到微博
             </li>
@@ -323,7 +358,7 @@
 
     <!-- Share Twitter -->
     
-        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=关于我&url=https://aduroidpc.github.io//about/index.html&via=阿杜" target="_blank">
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=Mac下配置属于你的环境变量&url=https://aduroidpc.github.io//2017/06/06/Mac下配置属于你的环境变量/index.html&via=阿杜" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Twitter
             </li>
@@ -332,7 +367,7 @@
 
     <!-- Share Facebook -->
     
-        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=https://aduroidpc.github.io//about/index.html" target="_blank">
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=https://aduroidpc.github.io//2017/06/06/Mac下配置属于你的环境变量/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Facebook
             </li>
@@ -341,7 +376,7 @@
 
     <!-- Share Google+ -->
     
-        <a class="post_share-link" href="https://plus.google.com/share?url=https://aduroidpc.github.io//about/index.html" target="_blank">
+        <a class="post_share-link" href="https://plus.google.com/share?url=https://aduroidpc.github.io//2017/06/06/Mac下配置属于你的环境变量/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Google+
             </li>
@@ -365,10 +400,50 @@
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <p>I am aduroidpc.</p>
-<blockquote>
-<p>每一个你不满意的现在，都有一个你没有努力的曾经。</p>
+        <h3 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h3><blockquote>
+<p>搭建了博客，一直没有心思来写博客，今天我们就来写一篇吧，不对，应该说写两篇。这篇为下一篇打基础。</p>
+<p>我们在mac下开发Android，避免不了JDK、NDK、SDK、ADB等必备工具，少不了去配置他们的环境变量，在mac上面比win上面还是简单了许多，我们来一起学习下。</p>
 </blockquote>
+<h3 id="一、启动终端iTerm"><a href="#一、启动终端iTerm" class="headerlink" title="一、启动终端iTerm"></a>一、启动终端iTerm</h3><blockquote>
+<p>这个我就不说怎么打开了，大家都是明白人。</p>
+</blockquote>
+<h3 id="二、编辑-bash-profile文件"><a href="#二、编辑-bash-profile文件" class="headerlink" title="二、编辑 .bash_profile文件"></a>二、编辑 .bash_profile文件</h3><blockquote>
+<p>在终端中输入命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">open .bash_profile</div></pre></td></tr></table></figure></p>
+</blockquote>
+<p>如果我们第一次配置环境的话，可能没有 <strong>.bash_profile</strong>文件，需要我们去创建一个<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">touch .bash_profile</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>创建完打开.bash_profile文件后，我们根据自己安装的ndk、sdk、adb的路径，写入到文件内，这步我们经常会出错，给大家看看我是怎么写的</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">export PATH=$&#123;PATH&#125;:/Users/xxx/Library/android-ndk-r14b</div><div class="line">export PATH=$&#123;PATH&#125;:/Users/xxx/Library/Android/sdk/platform-tools</div><div class="line">export PATH=$&#123;PATH&#125;:/Users/xxx/Library/Android/sdk/tools</div><div class="line">NDK_ROOT=/Users/xxx/Library/android-ndk-r14b</div><div class="line">SDK_ROOT=/Users/xxx/Library/Android/sdk/tools</div><div class="line">ANDROID_HOME=/Users/xxx/Library/Android/sdk</div><div class="line">ANDROID_NDK=/Users/xxx/Library/android-ndk-r14b</div><div class="line">ANDROID_SDK=/Users/xxx/Library/Android/sdk</div><div class="line">export NDK_ROOT</div><div class="line">export SDK_ROOT</div><div class="line">export ANDROID_HOME</div><div class="line">export ANDROID_NDK</div></pre></td></tr></table></figure>
+<blockquote>
+<p>上面xxx代表mac用户的名字。</p>
+<p>那个ndk目录我的是<strong>Library/android-ndk-r14b</strong>，你的不一定是这个，你可以去Android Studio中File -&gt; Project Structure下设置并查看你的ndk还有sdk路径。</p>
+</blockquote>
+<h3 id="三、保存并关闭"><a href="#三、保存并关闭" class="headerlink" title="三、保存并关闭"></a>三、保存并关闭</h3><blockquote>
+<p>command+s  保存之后关闭文件</p>
+</blockquote>
+<h3 id="四、更新配置的环境变量"><a href="#四、更新配置的环境变量" class="headerlink" title="四、更新配置的环境变量"></a>四、更新配置的环境变量</h3><blockquote>
+<p>source .bash_profile</p>
+</blockquote>
+<h3 id="五、测试"><a href="#五、测试" class="headerlink" title="五、测试"></a>五、测试</h3><ul>
+<li>输入<strong>javac</strong>,出现下面内容为成功</li>
+</ul>
+<blockquote>
+<p>用法: javac <options> <source files=""><br>其中, 可能的选项包括:<br>  -g                         生成所有调试信息<br>  -g:none                    不生成任何调试信息</options></p>
+</blockquote>
+<ul>
+<li>输入<strong>ndk-build</strong>,出现下面内容为成功</li>
+</ul>
+<blockquote>
+<p>Android NDK: Could not find application project directory !<br>Android NDK: Please define the NDK_PROJECT_PATH variable to point to it.<br>/Users/xxx/Library/android-ndk-r14b/build/core/build-local.mk:151: <em>*</em> Android NDK: Aborting    .  Stop.</p>
+</blockquote>
+<ul>
+<li>输入<strong>adb</strong>，出现下面内容为成功</li>
+</ul>
+<blockquote>
+<p>Android Debug Bridge version 1.0.39<br>Revision 3db08f2c6889-android</p>
+</blockquote>
+<h3 id="六、end"><a href="#六、end" class="headerlink" title="六、end"></a>六、end</h3><p>这样我们在mac下的环境就配置成功了。你还有不明白的地方吗？</p>
 
     
 
@@ -394,6 +469,14 @@
             <!-- Post Prev & Next Nav -->
             <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
     <!-- Prev Nav -->
+    
+        <a href="/2017/06/10/让我们再来认识一下Android/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
     
 
     <!-- Section Spacer -->
@@ -551,6 +634,14 @@ It will not impact the appearance and can give developers a lot of support :)
 </aside>
 
                     
+
+                    
+                        <!-- Footer Top Button -->
+                        <div class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
 
                     
 
