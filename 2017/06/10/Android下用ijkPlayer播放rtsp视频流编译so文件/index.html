@@ -400,7 +400,9 @@
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote>
+        <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="http://music.163.com/outchain/player?type=2&id=25706282&auto=0&height=66"><br></iframe>
+
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote>
 <p>这两天被这个ijkplayer、rtsp视频流搞的我甚至有点喜欢他们了。上一篇博客配置mac的环境变量，就是要在这篇编译so文件的时候使用NDK，所以没有配置好环境变量的可以去看一下<a href="https://aduroidpc.github.io/2017/05/26/Mac%E4%B8%8B%E9%85%8D%E7%BD%AE%E5%B1%9E%E4%BA%8E%E4%BD%A0%E7%9A%84%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/">上一篇博客</a>。</p>
 </blockquote>
 <h3 id="一、用什么去播放rtsp视频流"><a href="#一、用什么去播放rtsp视频流" class="headerlink" title="一、用什么去播放rtsp视频流"></a>一、用什么去播放rtsp视频流</h3><blockquote>
@@ -412,7 +414,7 @@
 </li>
 <li><p>下载ijkplayer-android源码</p>
   <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git clone https://github.com/Bilibili/ijkplayer.git ijkplayer-android</div></pre></td></tr></table></figure>
-<p>  <img src="/2017/06/10/Android下用ijkPlayer播放rtsp视频流编译so文件/1.png" alt="下载完源码图片"></p>
+<p>  <img src="/img/1.png" alt="下载完源码图片"></p>
 </li>
 <li><p>修改module-lite.sh文件</p>
   <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">export COMMON_FF_CFG_FLAGS=&quot;$COMMON_FF_CFG_FLAGS --enable-protocol=rtp&quot;</div><div class="line">export COMMON_FF_CFG_FLAGS=&quot;$COMMON_FF_CFG_FLAGS --enable-demuxer=rtsp&quot;</div><div class="line">export COMMON_FF_CFG_FLAGS=&quot;$COMMON_FF_CFG_FLAGS --enable-protocol=tcp&quot;</div></pre></td></tr></table></figure>
@@ -457,13 +459,15 @@
 <li>生成so文件</li>
 </ul>
 <p>这是最后一步了，坚持就是胜利。<br>切换到android目录下，执行命令生成so文件，就大功告成了</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">cd ..</div><div class="line">./compile-ijk.sh all</div><div class="line"></div><div class="line">``` </div><div class="line"></div><div class="line">生成so文件之后，我们去对应的文件夹找到并把他们放在你项目的libs下，如下图:</div><div class="line"></div><div class="line">![so文件](img/2.png)</div><div class="line"> </div><div class="line"></div><div class="line">- gradle配置</div></pre></td></tr></table></figure>
-<pre><code>sourceSets{
-    main{
-        jniLibs.srcDirs = [&apos;libs&apos;]
-    }
-}
-</code></pre><p>```</p>
+<blockquote>
+<p>./compile-ijk.sh all </p>
+<p>生成so文件之后，我们去对应的文件夹找到并把他们放在你项目的libs下，如下图:</p>
+</blockquote>
+<p><img src="/img/2.png" alt="so文件"></p>
+<ul>
+<li>gradle配置</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">sourceSets&#123;</div><div class="line">	main&#123;</div><div class="line">		jniLibs.srcDirs = [&apos;libs&apos;]</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>参考：</p>
 <p><a href="http://www.jianshu.com/p/bd289e25d272" target="_blank" rel="external">IJKPlayer编译so支持HTTPS的踩坑历程</a></p>
 <p><a href="https://github.com/Bilibili/ijkplayer" target="_blank" rel="external">https://github.com/Bilibili/ijkplayer</a></p>
