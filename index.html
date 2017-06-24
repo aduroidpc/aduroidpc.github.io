@@ -1,833 +1,346 @@
 <!DOCTYPE html>
-<html lang="zh">
-    <head>
-    <!--
-        © Material Theme
-        https://github.com/viosey/hexo-theme-material
-        Version: 1.3.3 -->
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
 
-    <!-- Title -->
-    
-    <title>
-        
-        aduroidpc’s Blog
-    </title>
+  
+  
+  
+  
+  
+  
+  <title>aduroidpc’s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="aduroidpc’s Blog">
+<meta property="og:url" content="https://aduroidpc.github.io/index.html">
+<meta property="og:site_name" content="aduroidpc’s Blog">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="aduroidpc’s Blog">
+  
+  
+    <link rel="icon" href="/css/images/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
 
-    <!-- Meta & Info -->
-    <meta charset="utf-8">
-
-    <!-- dns prefetch -->
-    <meta http-equiv="x-dns-prefetch-control" content="on">
-    
-    
-    
-    
-    
-    
-
-    <meta http-equiv="X-UA-Compatible">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#0097A7">
-    <meta name="author" content="阿杜">
-    <meta name="description" content="null">
-    <meta name="keywords" content="null">
-
-    <!-- Favicons -->
-    <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
-    <link rel="icon" sizes="192x192" href="/img/favicon.png">
-    <link rel="apple-touch-icon" href="/img/favicon.png">
-
-    <!--iOS -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <meta name="apple-mobile-web-app-title" content="Title">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="HandheldFriendly" content="True">
-    <meta name="MobileOptimized" content="480">
-
-    <!-- Add to homescreen for Chrome on Android -->
-    <meta name="mobile-web-app-capable" content="yes">
-
-    <!-- Add to homescreen for Safari on iOS -->
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="apple-mobile-web-app-title" content="aduroidpc’s Blog">
-
-    <!-- The Open Graph protocol -->
-    <meta property="og:url" content="https://aduroidpc.github.io">
-    <meta property="og:type" content="blog">
-    <meta property="og:title" content="aduroidpc’s Blog">
-    <meta property="og:description" content="null">
-    
-
-    <!--[if lte IE 9]>
-        <link rel="stylesheet" href="/css/ie-blocker.css">
-
-        
-            <script src="/js/ie-blocker.zhCN.js"></script>
-        
-    <![endif]-->
-
-    <!-- Import CSS & jQuery -->
-    
-        <link rel="stylesheet" href="/css/material.min.css">
-        <link rel="stylesheet" href="/css/style.min.css">
-        <!-- Config CSS -->
-
-
-<!-- Other Styles -->
-<style>
-  body, html {
-    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
-  }
-
-  a {
-    color: #00838F;
-  }
-
-  .mdl-card__media,
-  #search-label,
-  #search-form-label:after,
-  #scheme-Paradox .hot_tags-count,
-  #scheme-Paradox .sidebar_archives-count,
-  #scheme-Paradox .sidebar-colored .sidebar-header,
-  #scheme-Paradox .sidebar-colored .sidebar-badge{
-    background-color: #0097A7 !important;
-  }
-
-  /* Sidebar User Drop Down Menu Text Color */
-  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
-  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
-    color: #0097A7 !important;
-  }
-
-  #post_entry-right-info,
-  .sidebar-colored .sidebar-nav li:hover > a,
-  .sidebar-colored .sidebar-nav li:hover > a i,
-  .sidebar-colored .sidebar-nav li > a:hover,
-  .sidebar-colored .sidebar-nav li > a:hover i,
-  .sidebar-colored .sidebar-nav li > a:focus i,
-  .sidebar-colored .sidebar-nav > .open > a,
-  .sidebar-colored .sidebar-nav > .open > a:hover,
-  .sidebar-colored .sidebar-nav > .open > a:focus,
-  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
-    color: #0097A7 !important;
-  }
-
-  .toTop {
-    background: #757575 !important;
-  }
-
-  .material-layout .material-post>.material-nav,
-  .material-layout .material-index>.material-nav,
-  .material-nav a {
-    color: #757575;
-  }
-
-  #scheme-Paradox .MD-burger-layer {
-    background-color: #757575;
-  }
-
-  #scheme-Paradox #post-toc-trigger-btn {
-    color: #757575;
-  }
-
-  .post-toc a:hover {
-    color: #00838F;
-    text-decoration: underline;
-  }
-
-</style>
-
-
-<!-- Theme Background Related-->
-
-    <style>
-      body {
-        background-color: #F5F5F5;
-      }
-
-      /* blog_info bottom background */
-      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text {
-        background-color: #fff;
-      }
-    </style>
-
-
-
-
-<!-- Fade Effect -->
-
-    <style>
-      .fade {
-        transition: all 800ms linear;
-        -webkit-transform: translate3d(0,0,0);
-        -moz-transform: translate3d(0,0,0);
-        -ms-transform: translate3d(0,0,0);
-        -o-transform: translate3d(0,0,0);
-        transform: translate3d(0,0,0);
-        opacity: 1;
-      }
-
-      .fade.out{
-        opacity: 0;
-      }
-    </style>
-
-
-        <script src="/js/jquery.min.js"></script>
-        <script src="/js/queue.js"></script>
-    
-
-    <!-- UC Browser Compatible -->
-    <script>
-        var agent = navigator.userAgent.toLowerCase();
-        if(agent.indexOf('ucbrowser')>0) {
-            document.write("<link rel=\"stylesheet\" href=\"/css/uc.css\">");
-            alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
-        }
-    </script>
-
-    
-
-    
-
-
-    <!-- Bing Background -->
-    
-        <script type="text/javascript">
-            queue.offer(function(){
-                $('body').attr('data-original', 'https://api.i-meto.com/bing?null');
-            });
-        </script>
-    
-
-    <!-- Custom Head -->
-    
+  
+  <!-- baidu webmaster push -->
+  <script src='//push.zhanzhang.baidu.com/push.js'></script>
 </head>
+<body class="home blog custom-background custom-font-enabled single-author">
+  <div id="page" class="hfeed site">
+      <header id="masthead" class="site-header" role="banner">
+    <hgroup>
+      <h1 class="site-title">
+        <a href="/" title="aduroidpc’s Blog" rel="home">aduroidpc’s Blog</a>
+      </h1>
+      
+        <h2 class="site-description">
+          <a href="/" id="subtitle">每一个你不满意的现在，都有一个你没有努力的曾经。</a>
+        </h2>
+      
+    </hgroup>
 
-
-    
-        <body id="scheme-Paradox" class="lazy">
-            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+    <nav id="site-navigation" class="main-navigation" role="navigation">
+            <button class="menu-toggle">菜单</button>
+            <a class="assistive-text" href="/#content" title="跳至内容">跳至内容</a><!--TODO-->
+            <div class="menu-main-container">
+                <ul id="menu-main" class="nav-menu">
                 
-
-                <!-- Main Container -->
-                <main class="material-layout__content" id="main">
-
-                    <!-- Top Anchor -->
-                    <div id="top"></div>
-
-                    
-                        <!-- Hamburger Button -->
-                        <button class="MD-burger-icon sidebar-toggle">
-                            <span class="MD-burger-layer"></span>
-                        </button>
-                    
-
-                    <!-- Index Module -->
-<div class="material-index mdl-grid">
-    
-        <!-- Paradox Header -->
-        <!-- Daily pic -->
-<div class="mdl-card mdl-shadow--2dp daily-pic mdl-cell mdl-cell--8-col index-top-block">
-
-    <!-- Pic & Slogan -->
-    <div class="mdl-card__media mdl-color-text--grey-50" style="background-image:url(/img/daily_pic.png)">
-        <p class="index-top-block-slogan"><a href="#">
-        
-            
-                每一个你不满意的现在，都有一个你没有努力的曾经
-            
-        
-        </a></p>
-    </div>
-
-    <!-- Avatar & Name -->
-    <div class="mdl-card__supporting-text meta mdl-color-text--grey-600">
-        <!-- Author Avatar -->
-        <div id="author-avatar">
-            <img src="/img/avatar.png" width="32px" height="32px" alt="avatar">
-        </div>
-        <div>
-            <strong>阿杜</strong>
-        </div>
-    </div>
-</div>
-
-        <!-- Blog info -->
-<div class="mdl-card mdl-shadow--2dp something-else mdl-cell mdl-cell--8-col mdl-cell--4-col-desktop index-top-block">
-
-    <!-- Search -->
-    
-    <!-- Google -->
-    <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable" method="post" action="">
-        <label id="search-label" class="mdl-button mdl-js-ripple-effect mdl-js-button mdl-button--fab mdl-color--accent mdl-shadow--4dp" for="search">
-            <i class="material-icons mdl-color-text--white" role="presentation">search</i>
-        </label>
-
-        <form autocomplete="off" id="search-form" method="get" action="//google.com/search" accept-charset="UTF-8" class="mdl-textfield__expandable-holder" target="_blank">
-            <input class="mdl-textfield__input search-input" type="search" name="q" id="search" placeholder="">
-            <label id="search-form-label" class="mdl-textfield__label" for="search"></label>
-
-            <input type="hidden" name="sitesearch" value="https://aduroidpc.github.io">
-        </form>
-    </div>
-
-
-
-
-
-
-
-    <!-- LOGO -->
-    <div class="something-else-logo mdl-color--white mdl-color-text--grey-600">
-        <a href="https://github.com/aduroidpc">
-            <img src="/img/logo.png" alt="logo" />
-        </a>
-    </div>
-
-    <!-- Infomation -->
-    <div class="mdl-card__supporting-text meta meta--fill mdl-color-text--grey-600">
-        <!-- Blog Title -->
-        <div>
-            <strong>aduroidpc’s Blog</strong>
-        </div>
-        <div class="section-spacer"></div>
-
-        <!-- Pages -->
-        <button id="show-pages-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
-            <i class="material-icons" role="presentation">view_carousel</i>
-            <span class="visuallyhidden">Pages</span>
-        </button>
-        <ul class="mdl-menu mdl-js-menu mdl-menu--bottom-right" for="show-pages-button">
-            
-        </ul>
-
-        <!-- Menu -->
-        <button id="menubtn" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
-            <i class="material-icons" role="presentation">more_vert</i>
-            <span class="visuallyhidden">show menu</span>
-        </button>
-        <ul class="mdl-menu mdl-js-menu mdl-menu--bottom-right" for="menubtn">
-            
-
-            
-
-            
-                <a class="index_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=aduroidpc’s Blog&url=https://aduroidpc.github.io/&pic=&searchPic=false&style=simple" target="_blank">
-                    <li class="mdl-menu__item mdl-js-ripple-effect">
-                        分享到微博
-                    </li>
-                </a>
-            
-
-            
-                <a class="index_share-link" href="https://twitter.com/intent/tweet?text=aduroidpc’s Blog&url=https://aduroidpc.github.io/&via=阿杜" target="_blank">
-                    <li class="mdl-menu__item mdl-js-ripple-effect">
-                        分享到 Twitter
-                    </li>
-                </a>
-            
-
-            
-                <a class="index_share-link" href="https://www.facebook.com/sharer/sharer.php?u=https://aduroidpc.github.io//index.html" target="_blank">
-                    <li class="mdl-menu__item mdl-js-ripple-effect">
-                        分享到 Facebook
-                    </li>
-                </a>
-            
-
-            
-                <a class="index_share-link" href="https://plus.google.com/share?url=https://aduroidpc.github.io/" target="_blank">
-                    <li class="mdl-menu__item mdl-js-ripple-effect">
-                        分享到 Google+
-                    </li>
-                </a>
-            
-
-            
-
-            
-
-            
-        </ul>
-    </div>
-</div>
-
-    
-    <div class="locate-thumbnail-symbol"></div>
-
-    <!-- Pin on top -->
-    
-
-    <!-- Normal Post -->
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2017/06/10/Android下用ijkPlayer播放rtsp视频流编译so文件/">Android下用ijkPlayer播放rtsp视频流编译so文件</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2017/06/10/Android下用ijkPlayer播放rtsp视频流编译so文件/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="阿杜's avatar">
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/">Home</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/archives">Archives</a></li>
+                
+                </ul>
             </div>
-            <div>
-                <strong>阿杜</strong>
-                <span>6月 10, 2017</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-            <!-- Category -->
-            <span class="post_entry-category">
-                
-            </span>
+    </nav>
+</header>
+      <div id="main" class="wrapper">
+        <div id="primary" class="site-content"><div id="content" role="main">
+  
+    <article id="post-Android下用ijkPlayer播放rtsp视频流编译so文件" class="post-Android下用ijkPlayer播放rtsp视频流编译so文件 post type-post status-publish format-standard hentry">
+    <!---->
 
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
+      <header class="entry-header">
         
-    
         
+  
+    <h1 class="entry-title">
+      <a class="article-title" href="/2017/06/10/Android下用ijkPlayer播放rtsp视频流编译so文件/">Android下用ijkPlayer播放rtsp视频流编译so文件</a>
+    </h1>
+  
+
+        
+        <div class="comments-link">
             
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
+            <a href="javascript:void(0);" data-url="https://aduroidpc.github.io/2017/06/10/Android下用ijkPlayer播放rtsp视频流编译so文件/" data-id="cj4bd19qx0001ac5nkve05w5t" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
 
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2017/06/06/Mac下配置属于你的环境变量/">Mac下配置属于你的环境变量</a></p>
-    </div>
+    <div class="entry-content">
+      
+        <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="http://music.163.com/outchain/player?type=2&id=25706282&auto=0&height=66"><br></iframe>
 
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            引言
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2017/06/06/Mac下配置属于你的环境变量/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="阿杜's avatar">
-            </div>
-            <div>
-                <strong>阿杜</strong>
-                <span>6月 06, 2017</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-            <!-- Category -->
-            <span class="post_entry-category">
-                
-            </span>
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-
-    
-
-    
-        <script>
-    var randomNum;
-
-    var locatePost = $('.locate-thumbnail-symbol').next();
-    for(var i = 0; i < 0; i++) {
-        randomNum = Math.floor(Math.random() * 19 + 1);
-
-        locatePost.children('.post_thumbnail-random').attr('id', 'random_thumbnail-'+randomNum);
-        locatePost.children('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
-    $('.post_thumbnail-random').addClass('lazy');
-
-        locatePost = locatePost.next();
-    }
-</script>
-
-    
-</div>
-
-
-                    
-                        <!-- Overlay For Active Sidebar -->
-<div class="sidebar-overlay"></div>
-
-<!-- Material sidebar -->
-<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
-    <div id="sidebar-main">
-        <!-- Sidebar Header -->
-        <div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header.png);">
-    <!-- Top bar -->
-    <div class="top-bar"></div>
-
-    <!-- Sidebar toggle button -->
-    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
-        <i class="material-icons">clear_all</i>
-        <span class="mdl-button__ripple-container">
-            <span class="mdl-ripple">
-            </span>
-        </span>
-    </button>
-
-    <!-- Sidebar Avatar -->
-    <div class="sidebar-image">
-        <img src="/img/avatar.png" alt="阿杜's avatar">
-    </div>
-
-    <!-- Sidebar Email -->
-    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
-        dpc7775223@gmail.com
-        <b class="caret"></b>
-    </a>
-</div>
-
-
-        <!-- Sidebar Navigation  -->
-        <ul class="nav sidebar-nav">
-    <!-- User dropdown  -->
-    <li class="dropdown">
-        <ul id="settings-dropdown" class="dropdown-menu">
-            
-                <li>
-                    <a href="#" target="_blank" title="Email Me">
-                        
-                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
-                        
-                        Email Me
-                    </a>
-                </li>
-            
-        </ul>
-    </li>
-
-    <!-- Homepage -->
-    
-        <li id="sidebar-first-li">
-            <a href="/" target="_self">
-                
-                    <i class="material-icons sidebar-material-icons">home</i>
-                
-                主页
-            </a>
-        </li>
-        
-    
-
-    <!-- Archives  -->
-    
-        <li class="dropdown">
-            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
-                
-                    <i class="material-icons sidebar-material-icons">inbox</i>
-                
-                    归档
-                <b class="caret"></b>
-            </a>
-            <ul class="dropdown-menu">
-            <li>
-                <a class="sidebar_archives-link" href="/archives/2017/06/">六月 2017<span class="sidebar_archives-count">2</span></a>
-            </ul>
-        </li>
-        
-    
-
-    <!-- Categories  -->
-    
-
-    <!-- Pages  -->
-    
-
-    <!-- Article Number  -->
-    
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote>
+<p>这两天被这个ijkplayer、rtsp视频流搞的我甚至有点喜欢他们了。上一篇博客配置mac的环境变量，就是要在这篇编译so文件的时候使用NDK，所以没有配置好环境变量的可以去看一下<a href="https://aduroidpc.github.io/2017/05/26/Mac%E4%B8%8B%E9%85%8D%E7%BD%AE%E5%B1%9E%E4%BA%8E%E4%BD%A0%E7%9A%84%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/">上一篇博客</a>。</p>
+</blockquote>
+<h3 id="一、用什么去播放rtsp视频流"><a href="#一、用什么去播放rtsp视频流" class="headerlink" title="一、用什么去播放rtsp视频流"></a>一、用什么去播放rtsp视频流</h3><blockquote>
+<p>我在这里选用的是郭哥封装好的一个很棒的视频播放器<a href="https://github.com/CarGuo/GSYVideoPlayer" target="_blank" rel="external">GSYVideoPlayer</a>,这是一款基于ijkplayer实现了多功能的视频播放器，感兴趣的可以去学习一下。<br>大家都知道bilibili出品的<a href="https://github.com/Bilibili/ijkplayer" target="_blank" rel="external">ijkplayer</a>播放器吧。<br>没错，郭哥就是站在了巨人的肩膀上对它进行了封装，让我们更好的运用达到自己的要求。<br>无奈的是ijkplayer本身的使用环境也不是特别为这个实时输出而生的，所以需要我们自己去量身定做一下，那我们开始吧。</p>
+</blockquote>
+<h3 id="二、在构建之前我们要部署环境"><a href="#二、在构建之前我们要部署环境" class="headerlink" title="二、在构建之前我们要部署环境"></a>二、在构建之前我们要部署环境</h3><ul>
+<li><p>在构建之前我们要部署环境</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"># install homebrew, git, yasm</div><div class="line">ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</div><div class="line">brew install git</div><div class="line">brew install yasm</div></pre></td></tr></table></figure>
+</li>
+<li><p>下载ijkplayer-android源码</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git clone https://github.com/Bilibili/ijkplayer.git ijkplayer-android</div></pre></td></tr></table></figure>
+<p>  <img src="/img/1.png" alt="下载完源码图片"></p>
+</li>
+<li><p>修改module-lite.sh文件</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">export COMMON_FF_CFG_FLAGS=&quot;$COMMON_FF_CFG_FLAGS --enable-protocol=rtp&quot;</div><div class="line">export COMMON_FF_CFG_FLAGS=&quot;$COMMON_FF_CFG_FLAGS --enable-demuxer=rtsp&quot;</div><div class="line">export COMMON_FF_CFG_FLAGS=&quot;$COMMON_FF_CFG_FLAGS --enable-protocol=tcp&quot;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>记得那个rtp是将disable改成了enable，然后在后面添加下面的两个rtsp和tcp</p>
+</blockquote>
+</li>
+<li>修改ff_ffplay.c文件<blockquote>
+<p>ijkmedia -&gt; ijkplayer -&gt; ff_ffplay.c</p>
+</blockquote>
+</li>
 </ul>
+<p>将下列代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">static int packet_queue_get_or_buffering(FFPlayer *ffp, PacketQueue *q, AVPacket *pkt, int *serial, int *finished)</div><div class="line">&#123;</div><div class="line">    assert(finished);</div><div class="line">    if (!ffp-&gt;packet_buffering)</div><div class="line">        return packet_queue_get(q, pkt, 1, serial);</div><div class="line"></div><div class="line">    while (1) &#123;</div><div class="line">        int new_packet = packet_queue_get(q, pkt, 0, serial);</div><div class="line">        if (new_packet &lt; 0)</div><div class="line">            return -1;</div><div class="line">        else if (new_packet == 0) &#123;</div><div class="line">            if (q-&gt;is_buffer_indicator &amp;&amp; !*finished)</div><div class="line">                ffp_toggle_buffering(ffp, 1);</div><div class="line">            new_packet = packet_queue_get(q, pkt, 1, serial);</div><div class="line">            if (new_packet &lt; 0)</div><div class="line">                return -1;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        if (*finished == *serial) &#123;</div><div class="line">            av_packet_unref(pkt);</div><div class="line">            continue;</div><div class="line">        &#125;</div><div class="line">        else</div><div class="line">            break;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    return 1;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<pre><code>修改为下面的代码
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">	static int packet_queue_get_or_buffering(FFPlayer *ffp, PacketQueue *q, AVPacket *pkt, int *serial, int finished)</div><div class="line">&#123;</div><div class="line">    while (1) &#123;</div><div class="line">        int new_packet = packet_queue_get(q, pkt, 1, serial);</div><div class="line">        if (new_packet &lt; 0)</div><div class="line">        &#123;</div><div class="line">            new_packet = packet_queue_get(q, pkt, 0, serial);</div><div class="line">            if(new_packet &lt; 0)</div><div class="line">            return -1;</div><div class="line">        &#125; else if (new_packet == 0) &#123;</div><div class="line">            if (!finished)</div><div class="line">            ffp_toggle_buffering(ffp, 1);</div><div class="line">            new_packet = packet_queue_get(q, pkt, 1, serial);</div><div class="line">            if (new_packet &lt; 0)</div><div class="line">            return -1;</div><div class="line">        &#125;</div><div class="line">        if (finished == *serial) &#123;</div><div class="line">            av_free_packet(pkt);</div><div class="line">            continue;</div><div class="line">        &#125;</div><div class="line">        else</div><div class="line">        break;        </div><div class="line">    &#125;</div><div class="line">    return 1;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>接下来就是在iTerm中操作了</li>
+</ul>
+<p>我们切换到下载好的源码目录中，并且换分支，你也可以在master，当然这个latest是官方推荐的。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd ijkplayer-android</div><div class="line">git checkout -B latest k0.8.0</div></pre></td></tr></table></figure>
+<ul>
+<li>编译前选择配置，一般我们都会选择size最小的</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">//If you prefer less codec/format for smaller binary size (include hevc function)</div><div class="line">cd config</div><div class="line">rm module.sh</div><div class="line">ln -s module-lite-hevc.sh module.sh</div></pre></td></tr></table></figure>
+<ul>
+<li>初始化FFmpeg，这里会下载源码，需要一段时间</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd ~/ijkplayer-android</div><div class="line">./init-android.sh</div></pre></td></tr></table></figure>
+<ul>
+<li>接下来就是编译</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">cd android/contrib</div><div class="line">./compile-ffmpeg.sh clean	//清除</div><div class="line">./compile-ffmpeg.sh all		//编译</div></pre></td></tr></table></figure>
+<blockquote>
+<p>编译需要同样也是很费时的，但是这里有一个要注意的点，当你输入指令去编译的时候，他<br>有时会提醒你找不到NDK或者让你去配置NDK的环境，但是你明明之前已经配过了，所以你不要慌，输入下面的指令</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd //切换到跟目录下，就像你刚打开iTerm那个目录一样</div><div class="line">source .bash_profile	//更新你的环境变量</div></pre></td></tr></table></figure>
+<blockquote>
+<p>然后呢，你在输入编译的指令，它就能很听话的编译了。</p>
+</blockquote>
+<ul>
+<li>生成so文件</li>
+</ul>
+<p>这是最后一步了，坚持就是胜利。<br>切换到android目录下，执行命令生成so文件，就大功告成了</p>
+<blockquote>
+<p>./compile-ijk.sh all </p>
+<p>生成so文件之后，我们去对应的文件夹找到并把他们放在你项目的libs下，如下图:</p>
+</blockquote>
+<p><img src="/img/2.png" alt="so文件"></p>
+<ul>
+<li>gradle配置</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">sourceSets&#123;</div><div class="line">	main&#123;</div><div class="line">		jniLibs.srcDirs = [&apos;libs&apos;]</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>参考：</p>
+<p><a href="http://www.jianshu.com/p/bd289e25d272" target="_blank" rel="external">IJKPlayer编译so支持HTTPS的踩坑历程</a></p>
+<p><a href="https://github.com/Bilibili/ijkplayer" target="_blank" rel="external">https://github.com/Bilibili/ijkplayer</a></p>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2017/06/10/Android下用ijkPlayer播放rtsp视频流编译so文件/">
+    <time datetime="2017-06-10T05:49:45.000Z" class="entry-date">
+        2017-06-10
+    </time>
+</a>
+    
+    
+  <span class="article-delim">&#8226;</span>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
+
+    </footer>
+</article>
 
 
-        <!-- Sidebar Footer -->
-        <!--
-I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
-If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
-It will not impact the appearance and can give developers a lot of support :)
-
-很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
-如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
-它不会影响美观并可以给开发者很大的支持和动力。 :)
--->
-
-<!-- Sidebar Divider -->
-
-    <div class="sidebar-divider"></div>
 
 
-<!-- Theme Material -->
-
-    <a href="https://github.com/viosey/hexo-theme-material"  class="sidebar-footer-text-a" target="_blank">
-        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
-            主题 - Material
-            <span class="sidebar-badge badge-circle">i</span>
-        </div>
-    </a>
 
 
-<!-- Help & Support -->
-<!--
+  
+    <article id="post-Mac下配置属于你的环境变量" class="post-Mac下配置属于你的环境变量 post type-post status-publish format-standard hentry">
+    <!---->
 
--->
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title">
+      <a class="article-title" href="/2017/06/06/Mac下配置属于你的环境变量/">Mac下配置属于你的环境变量</a>
+    </h1>
+  
 
-<!-- Feedback -->
-<!--
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="https://aduroidpc.github.io/2017/06/06/Mac下配置属于你的环境变量/" data-id="cj4bd19r10002ac5nws48k4a2" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
 
--->
+    <div class="entry-content">
+      
+        <h3 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h3><blockquote>
+<p>搭建了博客，一直没有心思来写博客，今天我们就来写一篇吧，不对，应该说写两篇。这篇为下一篇打基础。</p>
+<p>我们在mac下开发Android，避免不了JDK、NDK、SDK、ADB等必备工具，少不了去配置他们的环境变量，在mac上面比win上面还是简单了许多，我们来一起学习下。</p>
+</blockquote>
+<h3 id="一、启动终端iTerm"><a href="#一、启动终端iTerm" class="headerlink" title="一、启动终端iTerm"></a>一、启动终端iTerm</h3><blockquote>
+<p>这个我就不说怎么打开了，大家都是明白人。</p>
+</blockquote>
+<h3 id="二、编辑-bash-profile文件"><a href="#二、编辑-bash-profile文件" class="headerlink" title="二、编辑 .bash_profile文件"></a>二、编辑 .bash_profile文件</h3><blockquote>
+<p>在终端中输入命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">open .bash_profile</div></pre></td></tr></table></figure></p>
+</blockquote>
+<p>如果我们第一次配置环境的话，可能没有 <strong>.bash_profile</strong>文件，需要我们去创建一个<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">touch .bash_profile</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>创建完打开.bash_profile文件后，我们根据自己安装的ndk、sdk、adb的路径，写入到文件内，这步我们经常会出错，给大家看看我是怎么写的</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">export PATH=$&#123;PATH&#125;:/Users/xxx/Library/android-ndk-r14b</div><div class="line">export PATH=$&#123;PATH&#125;:/Users/xxx/Library/Android/sdk/platform-tools</div><div class="line">export PATH=$&#123;PATH&#125;:/Users/xxx/Library/Android/sdk/tools</div><div class="line">NDK_ROOT=/Users/xxx/Library/android-ndk-r14b</div><div class="line">SDK_ROOT=/Users/xxx/Library/Android/sdk/tools</div><div class="line">ANDROID_HOME=/Users/xxx/Library/Android/sdk</div><div class="line">ANDROID_NDK=/Users/xxx/Library/android-ndk-r14b</div><div class="line">ANDROID_SDK=/Users/xxx/Library/Android/sdk</div><div class="line">export NDK_ROOT</div><div class="line">export SDK_ROOT</div><div class="line">export ANDROID_HOME</div><div class="line">export ANDROID_NDK</div></pre></td></tr></table></figure>
+<blockquote>
+<p>上面xxx代表mac用户的名字。</p>
+<p>那个ndk目录我的是<strong>Library/android-ndk-r14b</strong>，你的不一定是这个，你可以去Android Studio中File -&gt; Project Structure下设置并查看你的ndk还有sdk路径。</p>
+</blockquote>
+<h3 id="三、保存并关闭"><a href="#三、保存并关闭" class="headerlink" title="三、保存并关闭"></a>三、保存并关闭</h3><blockquote>
+<p>command+s  保存之后关闭文件</p>
+</blockquote>
+<h3 id="四、更新配置的环境变量"><a href="#四、更新配置的环境变量" class="headerlink" title="四、更新配置的环境变量"></a>四、更新配置的环境变量</h3><blockquote>
+<p>source .bash_profile</p>
+</blockquote>
+<h3 id="五、测试"><a href="#五、测试" class="headerlink" title="五、测试"></a>五、测试</h3><ul>
+<li>输入<strong>javac</strong>,出现下面内容为成功</li>
+</ul>
+<blockquote>
+<p>用法: javac <options> <source files=""><br>其中, 可能的选项包括:<br>  -g                         生成所有调试信息<br>  -g:none                    不生成任何调试信息</options></p>
+</blockquote>
+<ul>
+<li>输入<strong>ndk-build</strong>,出现下面内容为成功</li>
+</ul>
+<blockquote>
+<p>Android NDK: Could not find application project directory !<br>Android NDK: Please define the NDK_PROJECT_PATH variable to point to it.<br>/Users/xxx/Library/android-ndk-r14b/build/core/build-local.mk:151: <em>*</em> Android NDK: Aborting    .  Stop.</p>
+</blockquote>
+<ul>
+<li>输入<strong>adb</strong>，出现下面内容为成功</li>
+</ul>
+<blockquote>
+<p>Android Debug Bridge version 1.0.39<br>Revision 3db08f2c6889-android</p>
+</blockquote>
+<h3 id="六、end"><a href="#六、end" class="headerlink" title="六、end"></a>六、end</h3><p>这样我们在mac下的环境就配置成功了。你还有不明白的地方吗？</p>
 
-<!-- About Theme -->
-<!--
+      
+    </div><!-- .entry-content -->
 
--->
+    <footer class="entry-meta">
+    <a href="/2017/06/06/Mac下配置属于你的环境变量/">
+    <time datetime="2017-06-06T12:23:42.000Z" class="entry-date">
+        2017-06-06
+    </time>
+</a>
+    
+    
+  <span class="article-delim">&#8226;</span>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mac/">mac</a></li></ul>
 
+    </footer>
+</article>
+
+
+
+
+
+
+  
+  
+
+</div></div>
+        <div id="secondary" class="widget-area" role="complementary">
+  
+    <aside id="search" class="widget widget_search"><form role="search" method="get" accept-charset="utf-8" id="searchform" class="searchform" action="//google.com/search">
+    <div>
+        <input type="text" value="" name="s" id="s" />
+        <input type="submit" id="searchsubmit" value="搜索" />
     </div>
-
-    <!-- Sidebar Image -->
+</form></aside>
+  
     
+  
+    
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget-content">
+      <ul>
+        
+          <li>
+            <a href="/2017/06/10/Android下用ijkPlayer播放rtsp视频流编译so文件/">Android下用ijkPlayer播放rtsp视频流编译so文件</a>
+          </li>
+        
+          <li>
+            <a href="/2017/06/06/Mac下配置属于你的环境变量/">Mac下配置属于你的环境变量</a>
+          </li>
+        
+      </ul>
+    </div>
+  </aside>
 
-</aside>
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget-content">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/">Android</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mac/">mac</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </aside>
 
-                    
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget-content tagcloud">
+      <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a>
+    </div>
+  </aside>
 
-                    
-                        <!-- Footer Top Button -->
-                        <div class="toTop-wrap">
-    <a href="#top" class="toTop">
-        <i class="material-icons footer_top-i">expand_less</i>
-    </a>
+  
 </div>
-
-                    
-
-                    <!--Footer-->
-<footer class="mdl-mini-footer" id="bottom">
-    
-        <!-- Paradox Footer Left Section -->
-        <div class="mdl-mini-footer--left-section sns-list">
-    <!-- Twitter -->
-    
-        <a href="https://twitter.com/twitter" target="_blank">
-            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-twitter.svg);">
-                <span class="visuallyhidden">Twitter</span>
-            </button><!--
-     --></a>
-    
-
-    <!-- Facebook -->
-    
-        <a href="https://www.facebook.com/facebook" target="_blank">
-            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-facebook.svg);">
-                <span class="visuallyhidden">Facebook</span>
-            </button><!--
-     --></a>
-    
-
-    <!-- Google + -->
-    
-        <a href="https://www.google.com/" target="_blank">
-            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-gplus.svg);">
-                <span class="visuallyhidden">Google Plus</span>
-            </button><!--
-     --></a>
-    
-
-    <!-- Weibo -->
-    
-
-    <!-- Instagram -->
-    
-
-    <!-- Tumblr -->
-    
-
-    <!-- Github -->
-    
-
-    <!-- LinkedIn -->
-    
-
-    <!-- Zhihu -->
-    
-
-    <!-- Bilibili -->
-    
-
-    <!-- Telegram -->
-    
-</div>
-
-
-        <!--Copyright-->
-        <div id="copyright">
-            Copyright&nbsp;©&nbsp;
-            <script type="text/javascript">
-                var fd = new Date();
-                document.write(fd.getFullYear());
-            </script>
-            &nbsp;aduroidpc’s Blog
-        </div>
-
-        <!-- Paradox Footer Right Section -->
-
-        <!--
-        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
-        It will not impact the appearance and can give developers a lot of support :)
-
-        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
-        它不会影响美观并可以给开发者很大的支持。 :)
-        -->
-
-        <div class="mdl-mini-footer--right-section">
-            <div>
-                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
-                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
-            </div>
-        </div>
-    
+      </div>
+      <footer id="colophon" role="contentinfo">
+    <p>&copy; 2017 阿杜
+    All rights reserved.</p>
+    <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
 </footer>
+    <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+<script src="/js/jquery-2.0.3.min.js"></script>
 
 
-                    <!-- Import File -->
-
-    <script src="/js/lazyload.min.js"></script>
-    <script src="/js/js.min.js"></script>
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
 
 
+<script src="/js/script.js"></script>
 
-    <script src="/js/nprogress.js"></script>
+<script src="/js/navigation.js"></script>
 
+<div id="bg"></div>
 
-<script type="text/javascript">
-    NProgress.configure({
-        showSpinner: true
-    });
-    NProgress.start();
-    $('#nprogress .bar').css({
-        'background': '#29d'
-    });
-    $('#nprogress .peg').css({
-        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
-    });
-    $('#nprogress .spinner-icon').css({
-        'border-top-color': '#29d',
-        'border-left-color': '#29d'
-    });
-    setTimeout(function() {
-        NProgress.done();
-        $('.fade').removeClass('out');
-    }, 800);
-</script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-    <!-- Swiftye -->
-    
-
-    <!-- Local Search-->
-    
-
-
-<!-- Window Load-->
-<script>
-    $(window).load(function() {
-        // Post_Toc parent position fixed
-        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
-    });
-</script>
-
-<!-- MathJax Load-->
-
-<script>
-    <!-- Offer LazyLoad -->
-    queue.offer(function(){
-        $('.lazy').lazyload({
-            effect : 'show'
-        });
-    });
-
-    <!-- Start Queue -->
-    $(document).ready(function(){
-        setTimeout(function(){
-            setInterval(function(){
-                queue.execNext();
-            },200);
-        },3000);
-    });
-</script>
-
-                </main>
-            </div>
-        </body>
-    
+  </div>
+</body>
 </html>
