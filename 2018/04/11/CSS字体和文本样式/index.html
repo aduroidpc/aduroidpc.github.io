@@ -7,7 +7,7 @@
 
     
 
-    <title>aduroidpc’s Blog</title>
+    <title>CSS字体和文本样式 | aduroidpc’s Blog</title>
     <meta name="author" content="阿杜">
     
     <meta name="description" content="每一个你不满意的现在，都有一个你没有努力的曾经。">
@@ -15,7 +15,7 @@
     
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-    
+    <meta property="og:title" content="CSS字体和文本样式"/>
     <meta property="og:site_name" content="aduroidpc’s Blog"/>
 
     
@@ -176,61 +176,38 @@
 
 
     <main>
+        <div class="container main-container">
+    <nav class="page-nav hide-on-small-only">
+    <div class="nav-wrapper indigo">
+        <span class="breadcrumb">当前位置（分类目录）</span>
+        
+            
+
         
 
-<div class="slider">
-    <ul class="slides">
-    
-       <li>
-           <a href="/">
-               <img class="slider-image" src="https://images.unsplash.com/photo-1496304841270-2cb66cf766b4?ixlib=rb-0.3.5&amp;q=99&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=2048&amp;fit=max&amp;s=39e31e8690b48d6b9ceb9b70f4cc5903">
-               <div class="caption center-align">
-                 <h4>Remember It!</h3>
-                 <h5 class="light grey-text text-lighten-3">Every single thing you don&#39;t like now has a past that you haven&#39;t tried.</h5>
-               </div>
-           </a>
-       </li>
-    
-       <li>
-           <a href="javascript:;">
-               <img class="slider-image" src="http://bz.dxhaha.com/wp-content/uploads/2017/05/-13304.jpg">
-               <div class="caption left-align">
-                 <h4>Just do it!</h3>
-                 <h5 class="light grey-text text-lighten-3">We need keep it real.</h5>
-               </div>
-           </a>
-       </li>
-    
-       <li>
-           <a href="javascript:;">
-               <img class="slider-image" src="https://i.pximg.net/img-original/img/2017/08/30/19/00/13/64696486_p0.png">
-               <div class="caption right-align">
-                 <h4>This&#39;s me</h3>
-                 <h5 class="light grey-text text-lighten-3">I want to be stronger.</h5>
-               </div>
-           </a>
-       </li>
-    
-   </ul>
- </div>
+        
+    </div>
+</nav>
 
-
-
-<div id="article-list" class="container main-container">
-    
-        <article class="simple-article">
+<article>
     <div class="card">
         <div class="card-content">
+            
+
             <div class="article-title">
                 
     
-        <h1 class="undefined-link-context"><a href="/2018/04/11/CSS字体和文本样式/">CSS字体和文本样式</a></h1>
+        <h1>CSS字体和文本样式</h1>
     
 
 
             </div>
-
             <time class="indigo-link-context" datetime="2018-04-11T14:31:05.000Z"><a href="/2018/04/11/CSS字体和文本样式/">2018-04-11</a></time>
+
+            <span id="busuanzi_container_page_pv" class="read-times-container">
+    <i class="fa fa-eye"></i>
+    <span id="busuanzi_value_page_pv"></span>
+</span>
 
             
     <div class="tags-row">
@@ -240,308 +217,177 @@
     </div>
 
 
+            <div class="toc indigo-link-context hide-on-med-and-down">
+    <ol class="section table-of-contents"><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#文字样式属性"><span class="section table-of-contents-text">文字样式属性</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#CSS文字样式"><span class="section table-of-contents-text">CSS文字样式</span></a></li></ol>
+</div>
 
-            
-        </div>
 
-        
-    </div>
-</article>
+            <div class="entry indigo-link-context">
+                <blockquote>
+<p>前端已经有好几年没有摸过了，都忘的差不多了，各种标签属性都不记得了，最近项目需求，我想快速的把这块东西捡起来，慢慢的搭建自己的知识库</p>
+</blockquote>
+<h3 id="文字样式属性"><a href="#文字样式属性" class="headerlink" title="文字样式属性"></a><strong>文字样式属性</strong></h3><ul>
+<li>字体 :font-family</li>
+<li>字体大小:font-size</li>
+<li>颜色:font-color</li>
+<li>加粗:font-weight</li>
+<li><p>样式：font-style</p>
+</li>
+<li><p>font-family 字体属性：定义元素内文字以什么字体来显示</p>
+<ul>
+<li>语法：</li>
+<li>font-family:[字体1][,字体2][,…]</li>
+</ul>
+</li>
+<li>fony-family 属性值：具体字体名、字体集</li>
+<li><p>字体集</p>
+<ul>
+<li>Serif</li>
+<li>Sans-serif</li>
+<li>Monospace</li>
+<li>Cursive</li>
+<li>Fantasy  </li>
+</ul>
+</li>
+<li><p>font-size 字体大小：定义元素内文字大小</p>
+<ul>
+<li>语法：font-size:绝对单位|相对单位</li>
+</ul>
+</li>
+<li><p>color 文字颜色 ：定义元素内文字颜色</p>
+<ul>
+<li>语法：color：颜色名|十六进制|RGB</li>
+</ul>
+</li>
+<li><p>font-weight 文字粗细 ：为元素内文字设置粗细</p>
+<ul>
+<li>语法：font-weight:normal|bold|bolder|lighter|100~900</li>
+<li>说明：<ul>
+<li>默认值：normal</li>
+<li>400等同于normal，而700等同于bold</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>font-style 文字样式：为元素内文字设置样式</p>
+<ul>
+<li>语法：font-style:normal|italic|oblique </li>
+</ul>
+</li>
+<li><p>font-variant 字体变形：设置元素中文本为小型大写字母</p>
+<ul>
+<li>语法：font-variant:normal|small-caps</li>
+</ul>
+</li>
+</ul>
+<h3 id="CSS文字样式"><a href="#CSS文字样式" class="headerlink" title="CSS文字样式"></a>CSS文字样式</h3><ul>
+<li><p>text-align 设置元素内文本的水平对齐方式</p>
+<ul>
+<li>语法：text-align:left|right|center|justify</li>
+<li>注：该属性对块级元素设置有效</li>
+</ul>
+</li>
+<li><p>line-height 属性：设置元素中文本行高</p>
+<ul>
+<li>语法：line-height:长度值|百分比</li>
+<li>说明：一行文字的高度。行高指文本行的基线间的距离</li>
+</ul>
+</li>
+<li><p>文字基线</p>
+<ul>
+<li>图片待上传 </li>
+</ul>
+</li>
+<li>行高和行距<ul>
+<li>图片待上传 </li>
+</ul>
+</li>
+<li>行框和行内框<ul>
+<li>待上传 </li>
+</ul>
+</li>
+<li>vertical-align 属性：设置元素内容的垂直方式<ul>
+<li>语法 vertical-align：baseline|sub|super|top|text-top|middle|bottom|text-bottom 长度|百分比 </li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">值</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">baseline</td>
+<td style="text-align:center">默认。元素放置在父元素的基线上。</td>
+</tr>
+<tr>
+<td style="text-align:center">sub</td>
+<td style="text-align:center">垂直对齐文本的下标。</td>
+</tr>
+<tr>
+<td style="text-align:center">super</td>
+<td style="text-align:center">垂直对齐文本的上标</td>
+</tr>
+<tr>
+<td style="text-align:center">top</td>
+<td style="text-align:center">把元素的顶端与行中最高元素的顶端对齐</td>
+</tr>
+<tr>
+<td style="text-align:center">text-top</td>
+<td style="text-align:center">把元素的顶端与父元素字体的顶端对齐</td>
+</tr>
+<tr>
+<td style="text-align:center">middle</td>
+<td style="text-align:center">把此元素放置在父元素的中部。</td>
+</tr>
+<tr>
+<td style="text-align:center">bottom</td>
+<td style="text-align:center">把元素的顶端与行中最低的元素的顶端对齐。</td>
+</tr>
+<tr>
+<td style="text-align:center">text-bottom</td>
+<td style="text-align:center">把元素的底端与父元素字体的底端对齐。</td>
+</tr>
+<tr>
+<td style="text-align:center">length     </td>
+</tr>
+<tr>
+<td style="text-align:center">%</td>
+<td style="text-align:center">使用 “line-height” 属性的百分比值来排列此元素。允许使用负值。</td>
+</tr>
+<tr>
+<td style="text-align:center">inherit</td>
+<td style="text-align:center">规定应该从父元素继承 vertical-align 属性的值。</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>单行文字垂直方向居中——使用line-height</p>
+</blockquote>
 
-    
-        <article class="simple-article">
-    <div class="card">
-        <div class="card-content">
-            <div class="article-title">
                 
-    
-        <h1 class="undefined-link-context"><a href="/2018/03/26/knowledge-of-the-planet——The-android-learning-plan/">knowledge of the planet——The android learning plan</a></h1>
-    
+
+
+<p class="indigo-link-context">
+    <a href="/2018/03/26/knowledge-of-the-planet——The-android-learning-plan/" rel="next" title="knowledge of the planet——The android learning plan">
+    下一篇：knowledge of the planet——The android learning plan
+  </a>
+</p>
 
 
             </div>
-
-            <time class="indigo-link-context" datetime="2018-03-26T01:51:48.000Z"><a href="/2018/03/26/knowledge-of-the-planet——The-android-learning-plan/">2018-03-26</a></time>
-
-            
-    <div class="tags-row">
-        
-            <a href="/tags/Android/" class="chip green accent-4">Android</a>
-        
-    </div>
-
-
-
-            
+			
         </div>
-
-        
     </div>
 </article>
 
-    
-        <article class="simple-article">
-    <div class="card">
-        <div class="card-content">
-            <div class="article-title">
-                
-    
-        <h1 class="undefined-link-context"><a href="/2018/01/03/总结2017、展望2018/">总结2017、展望2018</a></h1>
-    
 
 
-            </div>
 
-            <time class="indigo-link-context" datetime="2018-01-03T07:51:41.000Z"><a href="/2018/01/03/总结2017、展望2018/">2018-01-03</a></time>
 
-            
-    <div class="tags-row">
-        
-            <a href="/tags/总结/" class="chip green accent-4">总结</a>
-        
-    </div>
-
-
-
-            
-        </div>
-
-        
-    </div>
-</article>
-
-    
-        <article class="simple-article">
-    <div class="card">
-        <div class="card-content">
-            <div class="article-title">
-                
-    
-        <h1 class="undefined-link-context"><a href="/2017/12/13/GDD2017/">GDD2017</a></h1>
-    
-
-
-            </div>
-
-            <time class="indigo-link-context" datetime="2017-12-13T15:57:46.000Z"><a href="/2017/12/13/GDD2017/">2017-12-13</a></time>
-
-            
-    <div class="tags-row">
-        
-            <a href="/tags/总结/" class="chip green accent-4">总结</a>
-        
-    </div>
-
-
-
-            
-        </div>
-
-        
-    </div>
-</article>
-
-    
-        <article class="simple-article">
-    <div class="card">
-        <div class="card-content">
-            <div class="article-title">
-                
-    
-        <h1 class="undefined-link-context"><a href="/2017/09/19/JAVA基础再回首完结篇，感概万千！/">JAVA基础再回首完结篇，感概万千！</a></h1>
-    
-
-
-            </div>
-
-            <time class="indigo-link-context" datetime="2017-09-19T14:55:24.000Z"><a href="/2017/09/19/JAVA基础再回首完结篇，感概万千！/">2017-09-19</a></time>
-
-            
-    <div class="tags-row">
-        
-            <a href="/tags/Java基础再回首总结/" class="chip green accent-4">Java基础再回首总结</a>
-        
-    </div>
-
-
-
-            
-        </div>
-
-        
-    </div>
-</article>
-
-    
-        <article class="simple-article">
-    <div class="card">
-        <div class="card-content">
-            <div class="article-title">
-                
-    
-        <h1 class="undefined-link-context"><a href="/2017/08/11/Android-Studio-for-mac快捷键/">Android Studio for mac 快捷键</a></h1>
-    
-
-
-            </div>
-
-            <time class="indigo-link-context" datetime="2017-08-11T01:24:56.000Z"><a href="/2017/08/11/Android-Studio-for-mac快捷键/">2017-08-11</a></time>
-
-            
-    <div class="tags-row">
-        
-            <a href="/tags/Android/" class="chip green accent-4">Android</a>
-        
-    </div>
-
-
-
-            
-        </div>
-
-        
-    </div>
-</article>
-
-    
-        <article class="simple-article">
-    <div class="card">
-        <div class="card-content">
-            <div class="article-title">
-                
-    
-        <h1 class="undefined-link-context"><a href="/2017/08/05/超多学习资料/">超多学习资料</a></h1>
-    
-
-
-            </div>
-
-            <time class="indigo-link-context" datetime="2017-08-05T08:54:28.000Z"><a href="/2017/08/05/超多学习资料/">2017-08-05</a></time>
-
-            
-    <div class="tags-row">
-        
-            <a href="/tags/other/" class="chip green accent-4">other</a>
-        
-    </div>
-
-
-
-            
-        </div>
-
-        
-    </div>
-</article>
-
-    
-        <article class="simple-article">
-    <div class="card">
-        <div class="card-content">
-            <div class="article-title">
-                
-    
-        <h1 class="undefined-link-context"><a href="/2017/07/14/VR、无人机的应用以及VR与无人机的结合使用 /">VR、无人机的应用以及VR与无人机的结合使用</a></h1>
-    
-
-
-            </div>
-
-            <time class="indigo-link-context" datetime="2017-07-14T08:02:48.000Z"><a href="/2017/07/14/VR、无人机的应用以及VR与无人机的结合使用 /">2017-07-14</a></time>
-
-            
-    <div class="tags-row">
-        
-            <a href="/tags/other/" class="chip green accent-4">other</a>
-        
-    </div>
-
-
-
-            
-        </div>
-
-        
-    </div>
-</article>
-
-    
-        <article class="simple-article">
-    <div class="card">
-        <div class="card-content">
-            <div class="article-title">
-                
-    
-        <h1 class="undefined-link-context"><a href="/2017/06/10/Android下用ijkPlayer播放rtsp视频流编译so文件/">Android下用ijkPlayer播放rtsp视频流编译so文件</a></h1>
-    
-
-
-            </div>
-
-            <time class="indigo-link-context" datetime="2017-06-10T05:49:45.000Z"><a href="/2017/06/10/Android下用ijkPlayer播放rtsp视频流编译so文件/">2017-06-10</a></time>
-
-            
-    <div class="tags-row">
-        
-            <a href="/tags/Android/" class="chip green accent-4">Android</a>
-        
-    </div>
-
-
-
-            
-        </div>
-
-        
-    </div>
-</article>
-
-    
-        <article class="simple-article">
-    <div class="card">
-        <div class="card-content">
-            <div class="article-title">
-                
-    
-        <h1 class="undefined-link-context"><a href="/2017/06/06/Mac下配置属于你的环境变量/">Mac下配置属于你的环境变量</a></h1>
-    
-
-
-            </div>
-
-            <time class="indigo-link-context" datetime="2017-06-06T12:23:42.000Z"><a href="/2017/06/06/Mac下配置属于你的环境变量/">2017-06-06</a></time>
-
-            
-    <div class="tags-row">
-        
-            <a href="/tags/mac/" class="chip green accent-4">mac</a>
-        
-    </div>
-
-
-
-            
-        </div>
-
-        
-    </div>
-</article>
-
-    
-
-    <ul class="pagination center-align">
-    <li class="disabled">
-        <a href="/"><i class="fa fa-angle-left"></i></a>
-    </li>
-    
-    
-        <li class="active green"><a href="/">1</a></li>
-    
-    
-    <li class="disabled">
-        <a href="/"><i class="fa fa-angle-right"></i></a>
-    </li>
- </ul>
 
 </div>
 
