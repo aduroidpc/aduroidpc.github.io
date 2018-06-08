@@ -7,7 +7,7 @@
 
     
 
-    <title>Nginx反向代理完成域名映射 | aduroidpc’s Blog</title>
+    <title>Kotlin | aduroidpc’s Blog</title>
     <meta name="author" content="阿杜">
     
     <meta name="description" content="每一个你不满意的现在，都有一个你没有努力的曾经。">
@@ -15,7 +15,7 @@
     
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-    <meta property="og:title" content="Nginx反向代理完成域名映射"/>
+    
     <meta property="og:site_name" content="aduroidpc’s Blog"/>
 
     
@@ -177,111 +177,30 @@
 
     <main>
         <div class="container main-container">
-    <nav class="page-nav hide-on-small-only">
+    
+
+<nav class="page-nav hide-on-small-only">
     <div class="nav-wrapper indigo">
-        <span class="breadcrumb">当前位置（分类目录）</span>
-        
-            
-
+        <span class="breadcrumb">当前位置（标签）</span>
         
 
+        
+            <a class="breadcrumb" href="/tags/Kotlin/">Kotlin</a>
         
     </div>
 </nav>
 
-<article>
-    <div class="card">
-        <div class="card-content">
-            
-
-            <div class="article-title">
-                
-    
-        <h1>Nginx反向代理完成域名映射</h1>
-    
 
 
-            </div>
-            <time class="indigo-link-context" datetime="2018-05-19T09:36:32.000Z"><a href="/2018/05/19/Nginx反向代理完成域名映射/">2018-05-19</a></time>
-
-            <span id="busuanzi_container_page_pv" class="read-times-container">
-    <i class="fa fa-eye"></i>
-    <span id="busuanzi_value_page_pv"></span>
-</span>
-
-            
-    <div class="tags-row">
+    <div class="collection mt-0">
         
-            <a href="/tags/服务器/" class="chip green accent-4">服务器</a>
+            <a href="/2018/06/08/Kotlin可控性/" class="collection-item grey-text text-darken-1">
+                <time datetime="2018-06-08T00:49:57.000Z">2018-06-08</time>
+                <span>&nbsp;&nbsp;&nbsp;</span>
+                Kotlin可控性
+            </a>
         
     </div>
-
-
-            <div class="toc indigo-link-context hide-on-med-and-down">
-    <ol class="section table-of-contents"><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#Nginx反向代理，完成域名映射"><span class="section table-of-contents-text">Nginx反向代理，完成域名映射</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#安装"><span class="section table-of-contents-text">安装</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#反向代理"><span class="section table-of-contents-text">反向代理</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#域名映射"><span class="section table-of-contents-text">域名映射</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#注意"><span class="section table-of-contents-text">注意</span></a></li></ol></li></ol></li></ol>
-</div>
-
-
-            <div class="entry indigo-link-context">
-                <h1 id="Nginx反向代理，完成域名映射"><a href="#Nginx反向代理，完成域名映射" class="headerlink" title="Nginx反向代理，完成域名映射"></a>Nginx反向代理，完成域名映射</h1><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><blockquote>
-<p>对与安装nginx，在网上搜一下，很多博客，大家一定要分清自己装的什么系统，然后在找对应的博客去安装，我是按照这篇博客来安装的，大家可以作为参考<a href="https://blog.csdn.net/u014374031/article/details/73441577" target="_blank" rel="external">ubuntu16.04安装nginx教程</a>，我用的是阿里云的服务器。</p>
-</blockquote>
-<h3 id="反向代理"><a href="#反向代理" class="headerlink" title="反向代理"></a>反向代理</h3><blockquote>
-<p>之前我对这里也是一帽子乌黑什么都不懂的，今天就来给大家科普一下。<br>首先所有浏览器都是默认解析80端口的域名，并且现在阿里云允许大家去部署80端口的网站，他会监测到你用80端口后，会禁止你访问，如下图但是是有下面这个前提的</p>
-</blockquote>
-<p><img src="/img/warning.png" alt="下载完源码图片"></p>
-<ul>
-<li>1、必须对你域名进行备案</li>
-<li>2、不能使用80端口（就意味这别人访问你的网站要加上端口号，比如：aduroidpc.tk:8089 这样的话，我估计没有人会去访问你的网站了，太繁琐）</li>
-</ul>
-<blockquote>
-<p>我看了下，如果是个人博客类型的网站，备案也不是很繁琐，所以还是备案一下，再用80端口部署</p>
-</blockquote>
-<p>这两天写了两个DApp，提交审核通过后会奖励100个NAS。<a href="https://incentive.nebulas.io/cn/signup.html?invite=S8SNW" target="_blank" rel="external">注册链接</a>，所以我自己就写了两个<a href="https://github.com/aduroidpc/DeliciousFood-Dapp" target="_blank" rel="external">美味的食物</a>、<a href="https://github.com/aduroidpc/floral-Dapp" target="_blank" rel="external">花语者</a>，审核时需要提供官网，所以就要将github的这两个项目部署一下到服务器，我们直接看安装好nginx后的配置部署流程吧。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">1、进入nginx下的sites-available目录</div><div class="line">cd /etc/nginx/sites-available</div><div class="line"></div><div class="line">2、新建配置文件，名字随意取一个，我起了个adu</div><div class="line">touch adu</div><div class="line"></div><div class="line">3、打开adu文件</div><div class="line">vi adu</div><div class="line"></div><div class="line">4、输入下面这些内容</div><div class="line"></div><div class="line">server &#123;listen 80;listen [::]:80;server_name food.aduroidpc.top;location / &#123;root /var/www/adu/ADU;index index.html index.htm index.nginx-debian.html;      &#125;&#125;</div><div class="line"> root 后面就是你项目的地址</div><div class="line"> server_name 后面就是你的域名</div><div class="line"> </div><div class="line"> 5、esc :wq 保存adu文件</div><div class="line"> 6、进入 /etc/nginx/sites-enabled 中</div><div class="line"> 	（cd ../返回上一页命令）</div><div class="line"> 7、执行 ln -s ../sites-available/配置文件名，启用这个配置文件 </div><div class="line"> 8、重启 nginx ，执行service nginx restart（没有回应表示ok）</div></pre></td></tr></table></figure>
-<blockquote>
-<p>接下来吧你的项目下载到adu配置的文件中，<br> 也就是/var/www/adu/ADU;这个目录</p>
-<p>我要部署github上面的项目，所以就要按装git<br> 大家可以去网上搜一下，<a href="https://blog.csdn.net/m0_37592397/article/details/78664757" target="_blank" rel="external">仅供参考</a>，这里我就不多说了</p>
-<p>如果你的服务器安装nginx成功，并且启动后，你访问你服务器的ip，他会有下面的信息显示</p>
-</blockquote>
-<p><img src="/img/nginx_welcome.jpg" alt="下载完源码图片"></p>
-<h3 id="域名映射"><a href="#域名映射" class="headerlink" title="域名映射"></a>域名映射</h3><blockquote>
-<p>如果你的域名是阿里云买的，那么你在管理控制台 –&gt; 域名与网站(万网) –&gt; 云解析DNS –&gt; 解析设置 –&gt;添加解析————如下图</p>
-</blockquote>
-<p><img src="/img/add_pares.png" alt="下载完源码图片"></p>
-<blockquote>
-<p>这样我们就配置成功了，可以通过这个域名进行访问了</p>
-</blockquote>
-<h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><blockquote>
-<p>如果你访问域名显示403 Forbidden，没找到文件，可能是你配置的项目地址和你下载的项目地址目录不一致。</p>
-<p>或者是你修改了目录，什么都对了，但是修改玩配置文件没有执行 ln -s(上面第7步)，如果提示 failed to create symbolic link ‘./adu’:File exists.这就需要你删除这个文件，就在sites-enabled目录下执行 rm -f adu ,然后再来一次 ln -s，接着重启nginx就ok</p>
-</blockquote>
-
-                
-<p class="indigo-link-context">
-    <a href="/2018/06/08/Kotlin可控性/" rel="next" title="Kotlin可控性">
-    上一篇：Kotlin可控性
-  </a>
-</p>
-
-
-
-<p class="indigo-link-context">
-    <a href="/2018/04/11/CSS字体和文本样式/" rel="next" title="CSS字体和文本样式">
-    下一篇：CSS字体和文本样式
-  </a>
-</p>
-
-
-            </div>
-			
-        </div>
-    </div>
-</article>
-
-
-
-
 
 
 </div>
