@@ -7,7 +7,7 @@
 
     
 
-    <title>归档：2018/6 | aduroidpc’s Blog</title>
+    <title>RxJava操作符 | aduroidpc’s Blog</title>
     <meta name="author" content="阿杜">
     
     <meta name="description" content="每一个你不满意的现在，都有一个你没有努力的曾经。">
@@ -15,7 +15,7 @@
     
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-    
+    <meta property="og:title" content="RxJava操作符"/>
     <meta property="og:site_name" content="aduroidpc’s Blog"/>
 
     
@@ -177,52 +177,108 @@
 
     <main>
         <div class="container main-container">
-    
-
-<nav class="page-nav hide-on-small-only">
+    <nav class="page-nav hide-on-small-only">
     <div class="nav-wrapper indigo">
-        <span class="breadcrumb">当前位置（归档）</span>
+        <span class="breadcrumb">当前位置（分类目录）</span>
+        
+            
+
         
 
         
     </div>
 </nav>
 
+<article>
+    <div class="card">
+        <div class="card-content">
+            
+
+            <div class="article-title">
+                
+    
+        <h1>RxJava操作符</h1>
+    
 
 
-    <ul class="collapsible mt-0" data-collapsible="accordion">
+            </div>
+            <time class="indigo-link-context" datetime="2018-06-11T06:50:49.000Z"><a href="/2018/06/11/RxJava操作符/">2018-06-11</a></time>
+
+            <span id="busuanzi_container_page_pv" class="read-times-container">
+    <i class="fa fa-eye"></i>
+    <span id="busuanzi_value_page_pv"></span>
+</span>
+
+            
+    <div class="tags-row">
         
+            <a href="/tags/Android/" class="chip green accent-4">Android</a>
         
-            <li>
-                <div class="collapsible-header active">
-                    <i class="fa fa-archive"></i>2018
-                </div>
-                <div class="collapsible-body">
-                    <div class="collection">
-                        
-                            <a href="/2018/06/11/RxJava操作符/" class="collection-item grey-text text-darken-1">
-                                <time datetime="2018-06-11T06:50:49.000Z">2018-06-11</time>
-                                <span>&nbsp;&nbsp;&nbsp;</span>
-                                RxJava操作符
-                            </a>
-                        
-                            <a href="/2018/06/11/RxJava的简单使用/" class="collection-item grey-text text-darken-1">
-                                <time datetime="2018-06-11T06:37:27.000Z">2018-06-11</time>
-                                <span>&nbsp;&nbsp;&nbsp;</span>
-                                RxJava的简单使用
-                            </a>
-                        
-                            <a href="/2018/06/08/Kotlin可空性/" class="collection-item grey-text text-darken-1">
-                                <time datetime="2018-06-08T00:49:57.000Z">2018-06-08</time>
-                                <span>&nbsp;&nbsp;&nbsp;</span>
-                                Kotlin可空性
-                            </a>
-                        
-                    </div>
-                </div>
-            </li>
-        
-    </ul>
+    </div>
+
+
+            <div class="toc indigo-link-context hide-on-med-and-down">
+    <ol class="section table-of-contents"><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#变换操作符"><span class="section table-of-contents-text">变换操作符</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#Map操作符"><span class="section table-of-contents-text">Map操作符</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#FlatMap操作符"><span class="section table-of-contents-text">FlatMap操作符</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-4"><a class="section table-of-contents-link" href="#登录获取用户信息案例核心代码"><span class="section table-of-contents-text">登录获取用户信息案例核心代码</span></a></li><li class="section table-of-contents-item section table-of-contents-level-4"><a class="section table-of-contents-link" href="#关键词搜索案例"><span class="section table-of-contents-text">关键词搜索案例</span></a></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#Debounce操作符"><span class="section table-of-contents-text">Debounce操作符</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#switchMap操作符"><span class="section table-of-contents-text">switchMap操作符</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-4"><a class="section table-of-contents-link" href="#防止按钮重复-连续-点击"><span class="section table-of-contents-text">防止按钮重复(连续)点击</span></a></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#ThrottleFirst操作符"><span class="section table-of-contents-text">ThrottleFirst操作符</span></a></li></ol></li></ol>
+</div>
+
+
+            <div class="entry indigo-link-context">
+                <h2 id="变换操作符"><a href="#变换操作符" class="headerlink" title="变换操作符"></a>变换操作符</h2><h3 id="Map操作符"><a href="#Map操作符" class="headerlink" title="Map操作符"></a>Map操作符</h3><blockquote>
+<p>对Observable发射的每一项数据应用一个函数，执行变换操作<br>Map操作符对原始Observable发射的每一项数据应用一个你选择的函数，然后返回一个发射这些结果的Observable。<br>我们来写个例子来解释一下</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">将原始的数据进行转换，也就是将Integer类型转换为String类型进行输出</div><div class="line"> Observable.just(1).map(new Function&lt;Integer, String&gt;() &#123;</div><div class="line">      @Override public String apply(Integer integer) throws Exception &#123;</div><div class="line">       	return 1+&quot;&quot;;</div><div class="line">    &#125;</div><div class="line"> &#125;);</div></pre></td></tr></table></figure>
+<h3 id="FlatMap操作符"><a href="#FlatMap操作符" class="headerlink" title="FlatMap操作符"></a>FlatMap操作符</h3><blockquote>
+<p>FlatMap 将一个发射数据的Observable变换为多个Observables，然后将它们发射的数据合并后放进一个单独的Observable</p>
+</blockquote>
+<h4 id="登录获取用户信息案例核心代码"><a href="#登录获取用户信息案例核心代码" class="headerlink" title="登录获取用户信息案例核心代码"></a>登录获取用户信息案例核心代码</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">Observable.just(getUserParam()).flatMap(</div><div class="line">     new Function&lt;UserParam, ObservableSource&lt;BaseResult&gt;&gt;() &#123;</div><div class="line">            @Override public ObservableSource&lt;BaseResult&gt; apply(UserParam userParam)</div><div class="line">                       throws Exception &#123;</div><div class="line">                   BaseResult baseResult = api.login(userParam).execute().body();</div><div class="line">                   return Observable.just(baseResult);</div><div class="line">               &#125;</div><div class="line">       &#125;).flatMap(new Function&lt;BaseResult, ObservableSource&lt;User&gt;&gt;() &#123;</div><div class="line">            @Override public ObservableSource&lt;User&gt; apply(BaseResult baseResult)</div><div class="line">               throws Exception &#123;</div><div class="line">               User user = api.getUserInfoWithPath(baseResult.getUser_id()).execute().body();</div><div class="line">               return Observable.just(user);</div><div class="line">          &#125;</div><div class="line">      &#125;).subscribeOn(Schedulers.io())</div><div class="line">         .observeOn(AndroidSchedulers.mainThread())</div><div class="line">         .subscribe(new Consumer&lt;User&gt;() &#123;</div><div class="line">           @Override public void accept(User user) throws Exception &#123;</div><div class="line">            text.setText(user.getUsername());</div><div class="line">           &#125;</div><div class="line">    &#125;);</div></pre></td></tr></table></figure>
+<blockquote>
+<p>在第一个flatMap中，我们先将用户名密码的对象UserParam类去请求结果转换成BaseResult对象。<br>然后在第二个flatMap中，将BaseResult对象转换成User对象。<br>接着切换线程，订阅更新UI</p>
+</blockquote>
+<h4 id="关键词搜索案例"><a href="#关键词搜索案例" class="headerlink" title="关键词搜索案例"></a>关键词搜索案例</h4><blockquote>
+<p>一般情况我们监听EditText控件，当值发生改变去请求搜索接口，如下</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">editText.addTextChangedListener(new TextWatcher() &#123;</div><div class="line">            @Override</div><div class="line">            public void beforeTextChanged(CharSequence s, int start, int count, int after) &#123;</div><div class="line"></div><div class="line">            &#125;</div><div class="line">            @Override public void onTextChanged(CharSequence s, int start, int before, int count) &#123;</div><div class="line"></div><div class="line">            &#125;</div><div class="line">            @Override public void afterTextChanged(Editable s) &#123;</div><div class="line">               请求搜索接口，成功后把结果显示在界面上</div><div class="line">            &#125;</div><div class="line">        &#125;);</div></pre></td></tr></table></figure>
+<p>a:可能导致很多没用意义的请求，耗费用户流量（因为空间的值每更改一次立即就会去请求网络，而且只是最后输入的关键字是有用的）<br>b:可能导致最终的搜索的结果不是用户想要的</p>
+<blockquote>
+<p>接下来我们就要了解一下Debounce操作符</p>
+</blockquote>
+<h3 id="Debounce操作符"><a href="#Debounce操作符" class="headerlink" title="Debounce操作符"></a>Debounce操作符</h3><blockquote>
+<p>仅在过了一段指定的时间还没发射数据时才发射一个数据，Debounce操作符会过滤掉发射速率过快的数据项</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line">RxTextView.textChanges(editText)</div><div class="line">            .debounce(200, TimeUnit.MILLISECONDS)</div><div class="line">            //因为是输入框所以要在ui线程中操作</div><div class="line">            .subscribeOn(AndroidSchedulers.mainThread())</div><div class="line">            //过滤数据,让输入框数据长度大于0才去发送请求</div><div class="line">            .filter(new Predicate&lt;CharSequence&gt;() &#123;</div><div class="line">                @Override public boolean test(CharSequence charSequence) throws Exception &#123;</div><div class="line">                    Log.i(&quot;adu&quot;,&quot;CharSequence过滤=&quot;+charSequence);</div><div class="line">                    return charSequence.toString().trim().length()&gt;0;</div><div class="line">                &#125;</div><div class="line">            &#125;)</div><div class="line">        //.flatMap(new Function&lt;CharSequence, ObservableSource&lt;List&lt;String&gt;&gt;&gt;() &#123;</div><div class="line">        //    @Override public ObservableSource&lt;List&lt;String&gt;&gt; apply(CharSequence charSequence) throws Exception &#123;</div><div class="line">        //        Log.i(&quot;adu&quot;,&quot;CharSequence=&quot;+charSequence);</div><div class="line">        //        List&lt;String&gt; list = new ArrayList&lt;&gt;();</div><div class="line">        //        list.add(&quot;adidas&quot;);</div><div class="line">        //        list.add(&quot;add&quot;);</div><div class="line">        //        list.add(&quot;qwe&quot;);</div><div class="line">        //</div><div class="line">        //        return Observable.just(list);</div><div class="line">        //    &#125;</div><div class="line">        //&#125;)</div><div class="line">            .switchMap(new Function&lt;CharSequence, ObservableSource&lt;List&lt;String&gt;&gt;&gt;() &#123;</div><div class="line">                @Override public ObservableSource&lt;List&lt;String&gt;&gt; apply(CharSequence charSequence)</div><div class="line">                    throws Exception &#123;</div><div class="line">                    Log.i(&quot;adu&quot;,&quot;CharSequence=&quot;+charSequence);</div><div class="line">                    List&lt;String&gt; list = new ArrayList&lt;&gt;();</div><div class="line">                    list.add(&quot;adidas&quot;);</div><div class="line">                    list.add(&quot;add&quot;);</div><div class="line">                    list.add(&quot;qwe&quot;);</div><div class="line">                    return Observable.just(list);</div><div class="line">                &#125;</div><div class="line">            &#125;)</div><div class="line">            .subscribeOn(Schedulers.io())//请求网络放在ui线程</div><div class="line">            .subscribeOn(AndroidSchedulers.mainThread())    //回到主线程更新ui</div><div class="line">            .subscribe(new Consumer&lt;List&lt;String&gt;&gt;() &#123;</div><div class="line">            @Override public void accept(List&lt;String&gt; strings) throws Exception &#123;</div><div class="line"></div><div class="line">                Log.i(&quot;adu&quot;,&quot;结果=&quot;+strings);</div><div class="line">            &#125;</div><div class="line">        &#125;);</div></pre></td></tr></table></figure>
+<blockquote>
+<p>上面我们用debounce操作符来监听用户停止操作后200毫秒发送一次请求，解决了我们上面a问题。然后我们将flatMap操作符换成了switchMap操作符，完美的解决了第二个问题，它在这里的作用是，当用户停止操作后200毫秒发送请求，当数据还没有请求回来时，用户接着又输入字符串，switchMap操作符会清空上一次的请求，接着操作请求这一次的数据，我们就更好的解决了b问题。我们来看看官方对于switchMap操作符的解释</p>
+</blockquote>
+<h3 id="switchMap操作符"><a href="#switchMap操作符" class="headerlink" title="switchMap操作符"></a>switchMap操作符</h3><blockquote>
+<p> 将Observable发射的数据集合变换为Observables集合，然后只发射这些Observables最近发射的数据</p>
+</blockquote>
+<h4 id="防止按钮重复-连续-点击"><a href="#防止按钮重复-连续-点击" class="headerlink" title="防止按钮重复(连续)点击"></a>防止按钮重复(连续)点击</h4><h3 id="ThrottleFirst操作符"><a href="#ThrottleFirst操作符" class="headerlink" title="ThrottleFirst操作符"></a>ThrottleFirst操作符</h3><blockquote>
+<p>允许设置一个时间长度，之后它会发送固定时间长度内的第一个事件，而屏蔽其他事件，在间隔达到设置的时间后，可以再发送下一个事件</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">RxView.clicks(button)</div><div class="line">            .throttleFirst(1,TimeUnit.SECONDS)</div><div class="line">            .subscribe(new Observer&lt;Object&gt;() &#123;</div><div class="line">                @Override public void onSubscribe(Disposable d) &#123;</div><div class="line"></div><div class="line">                &#125;</div><div class="line">                @Override public void onNext(Object o) &#123;</div><div class="line">                    Log.i(&quot;adu&quot;,&quot;这是点击按钮&quot;);</div><div class="line">                &#125;</div><div class="line">                @Override public void onError(Throwable e) &#123;</div><div class="line"></div><div class="line">                &#125;</div><div class="line">                @Override public void onComplete() &#123;</div><div class="line"></div><div class="line">                &#125;</div><div class="line">            &#125;);</div></pre></td></tr></table></figure>
+<blockquote>
+<p>当然你将throttleFirst操作符替换成上面的debounce操作符，结果是一样的</p>
+</blockquote>
+
+                
+
+
+<p class="indigo-link-context">
+    <a href="/2018/06/11/RxJava的简单使用/" rel="next" title="RxJava的简单使用">
+    下一篇：RxJava的简单使用
+  </a>
+</p>
+
+
+            </div>
+			
+        </div>
+    </div>
+</article>
+
+
+
+
 
 
 </div>
