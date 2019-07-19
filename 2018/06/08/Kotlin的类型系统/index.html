@@ -1,0 +1,685 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    
+
+    <title>Kotlin的类型系统 | aduroidpc’s Blog</title>
+    <meta name="author" content="阿杜">
+    
+    <meta name="description" content="每一个你不满意的现在，都有一个你没有努力的曾经。">
+    
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <meta property="og:title" content="Kotlin的类型系统"/>
+    <meta property="og:site_name" content="aduroidpc’s Blog"/>
+
+    
+    <meta property="og:image" content="undefined"/>
+    
+
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="alternate" href="/atom.xml" title="aduroidpc’s Blog" type="application/atom+xml">
+    <link rel="stylesheet" href="/css/lib/materialize.min.css">
+    <link rel="stylesheet" href="/css/lib/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+
+    
+        <link rel="stylesheet" href="/css/lib/prettify-tomorrow-night-eighties.css" type="text/css">
+    
+    <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+</head>
+
+
+<body>
+    <img src="/weixin_favicon.png" style="position: absolute; left: -9999px; opacity: 0; filter: alpha(opacity=0);">
+
+    <nav class="indigo">
+    <div class="nav-wrapper">
+        <a href="#" data-activates="main-menu" class="button-collapse">
+            <i class="fa fa-navicon"></i>
+        </a>
+        <div class="">
+            <a href="/" class="brand-logo hide-on-med-and-down">aduroidpc’s Blog</a>
+            <ul class="right hide-on-med-and-down">
+                
+                    <li>
+                        <a class="menu-home " href="/" >
+                            <i class="fa fa-home "></i>
+                            
+                            首页
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-archive " href="/archives" >
+                            <i class="fa fa-archive "></i>
+                            
+                            归档
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-category category-menu" href="javascript:;" data-activates="category-menu" >
+                            <i class="fa fa-bookmark "></i>
+                            
+                            分类
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-about " href="/about" >
+                            <i class="fa fa-user "></i>
+                            
+                            关于
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-search modal-trigger " href="#search" >
+                            <i class="fa fa-search "></i>
+                            
+                            搜索
+                        </a>
+                    </li>
+                
+            </ul>
+            <div>
+    <ul class="side-nav indigo darken-1" id="main-menu">
+        
+        <li class="side-user">
+            <div class="row">
+                <div class="col s4 no-padding">
+                    <img class="avatar-image circle responsive-img" src="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1528430077841&amp;di=ae9a2af6f074f6242b64cac70cd9e81c&amp;imgtype=0&amp;src=http%3A%2F%2Fimg4.duitang.com%2Fuploads%2Fitem%2F201412%2F09%2F20141209021136_z2ufv.jpeg" alt="User Avatar">
+                </div>
+                <div class="info col s8 valign-wrapper no-padding">
+                    <div class="valign">
+                        <p class="name">aduroidpc</p>
+                        <p class="desc">Android developer</p>
+                    </div>
+                </div>
+            </div>
+        </li>
+        
+
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-home " href="/" >
+                    <i class="fa fa-home "></i>
+                    
+                    首页
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-archive " href="/archives" >
+                    <i class="fa fa-archive "></i>
+                    
+                    归档
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-category category-menu" href="javascript:;" data-activates="category-menu" >
+                    <i class="fa fa-bookmark "></i>
+                    
+                    分类
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-about " href="/about" >
+                    <i class="fa fa-user "></i>
+                    
+                    关于
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-search modal-trigger " href="#search" >
+                    <i class="fa fa-search "></i>
+                    
+                    搜索
+                </a>
+            </li>
+        
+    </ul>
+
+    <ul class="side-nav indigo darken-1" id="category-menu">
+    
+
+            
+
+    </ul>
+</div>
+
+        </div>
+    </div>
+</nav>
+
+<div id="search" class="modal search-modal">
+    <div class="row">
+        <div class="input-field col s12">
+              <input id="search-input" type="text">
+              <label for="search-input">搜索</label>
+        </div>
+
+    </div>
+    <div id="search-result" class="search-result col s12">
+
+    </div>
+</div>
+
+
+    <main>
+        <div class="container main-container">
+    <nav class="page-nav hide-on-small-only">
+    <div class="nav-wrapper indigo">
+        <span class="breadcrumb">当前位置（分类目录）</span>
+        
+            
+
+        
+
+        
+    </div>
+</nav>
+
+<article>
+    <div class="card">
+        <div class="card-content">
+            
+
+            <div class="article-title">
+                
+    
+        <h1>Kotlin的类型系统</h1>
+    
+
+
+            </div>
+            <time class="indigo-link-context" datetime="2018-06-08T00:49:57.000Z"><a href="/2018/06/08/Kotlin的类型系统/">2018-06-08</a></time>
+
+            <span id="busuanzi_container_page_pv" class="read-times-container">
+    <i class="fa fa-eye"></i>
+    <span id="busuanzi_value_page_pv"></span>
+</span>
+
+            
+    <div class="tags-row">
+        
+            <a href="/tags/Kotlin/" class="chip green accent-4">Kotlin</a>
+        
+    </div>
+
+
+            <div class="toc indigo-link-context hide-on-med-and-down">
+    <ol class="section table-of-contents"><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#可空性"><span class="section table-of-contents-text">可空性</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#可空类型"><span class="section table-of-contents-text">可空类型</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#安全调用运算符：“-”"><span class="section table-of-contents-text">安全调用运算符：“?.”</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#Elvis运算符：“-”"><span class="section table-of-contents-text">Elvis运算符：“?:”</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#安全转换：“as-”"><span class="section table-of-contents-text">安全转换：“as?”</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#非空断言：“-”"><span class="section table-of-contents-text">非空断言：“!!”</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#“let”函数"><span class="section table-of-contents-text">“let”函数</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#延迟初始化的属性"><span class="section table-of-contents-text">延迟初始化的属性</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#可空类型的扩展"><span class="section table-of-contents-text">可空类型的扩展</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#类型参数的可空性"><span class="section table-of-contents-text">类型参数的可空性</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#可空性和Java"><span class="section table-of-contents-text">可空性和Java</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#基本数据类型和其他基本类型"><span class="section table-of-contents-text">基本数据类型和其他基本类型</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-4"><a class="section table-of-contents-link" href="#基本数据类型：Int、Boolean及其他"><span class="section table-of-contents-text">基本数据类型：Int、Boolean及其他</span></a></li><li class="section table-of-contents-item section table-of-contents-level-4"><a class="section table-of-contents-link" href="#可空的基本数据类型：Int-、Boolean？及其他"><span class="section table-of-contents-text">可空的基本数据类型：Int?、Boolean？及其他</span></a></li><li class="section table-of-contents-item section table-of-contents-level-4"><a class="section table-of-contents-link" href="#数字转换"><span class="section table-of-contents-text">数字转换</span></a></li><li class="section table-of-contents-item section table-of-contents-level-4"><a class="section table-of-contents-link" href="#“Any”和“Any-”-根类型"><span class="section table-of-contents-text">“Any”和“Any?”:根类型</span></a></li><li class="section table-of-contents-item section table-of-contents-level-4"><a class="section table-of-contents-link" href="#Unit类型：Kotlin的“void”"><span class="section table-of-contents-text">Unit类型：Kotlin的“void”</span></a></li><li class="section table-of-contents-item section table-of-contents-level-4"><a class="section table-of-contents-link" href="#Nothing类型：“这个函数永不返回”"><span class="section table-of-contents-text">Nothing类型：“这个函数永不返回”</span></a></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#集合与数组"><span class="section table-of-contents-text">集合与数组</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-4"><a class="section table-of-contents-link" href="#可空性和集合"><span class="section table-of-contents-text">可空性和集合</span></a></li></ol></li></ol></li></ol>
+</div>
+
+
+            <div class="entry indigo-link-context">
+                <h2 id="可空性"><a href="#可空性" class="headerlink" title="可空性"></a>可空性</h2><h3 id="可空类型"><a href="#可空类型" class="headerlink" title="可空类型"></a>可空类型</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">fun strLen(s:String) = s.length</div><div class="line"></div><div class="line">//使用可能为null的实参调用StrLen是不允许的，在编译期就会被标记成错误</div><div class="line">&gt;&gt;&gt;strLen(null)</div><div class="line">ERROR:Null can not be a value of a non-null type String</div></pre></td></tr></table></figure>
+<blockquote>
+<p>问号可以加在任何类型的后面来表示这个类型的变量可以存储null引用</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Type?  =  Type  or  null</div></pre></td></tr></table></figure>
+<blockquote>
+<p>没有问号的类型表示这种类型的变量不能存储null引用，这说明所有常见类型默认都是非空的，除非显式的把它标记为空</p>
+</blockquote>
+<h3 id="安全调用运算符：“-”"><a href="#安全调用运算符：“-”" class="headerlink" title="安全调用运算符：“?.”"></a>安全调用运算符：“?.”</h3><blockquote>
+<p>它允许把一次null检查和一次方法调用合并成一个操作</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">//表达式 s?.toUpperCase()  等同于下面这种烦琐的写法</div><div class="line">if(s!=null) s.toUpperCase() else null</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">				foo != null</div><div class="line">				-----------&gt;		foo.bar()</div><div class="line">foo?.bar()</div><div class="line">				foo == null</div><div class="line">			    -----------&gt;		null</div></pre></td></tr></table></figure>
+<p> <strong>安全调用运算符只会调用非空值的方法</strong></p>
+<h3 id="Elvis运算符：“-”"><a href="#Elvis运算符：“-”" class="headerlink" title="Elvis运算符：“?:”"></a>Elvis运算符：“?:”</h3><blockquote>
+<p>Elvis运算符接收两个运算数，如果第一个运算数不为null，运算结果就是第一个运算数；如果第一个运算数为null，运算结果就是第二个运算数</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">				foo != null</div><div class="line">				-----------&gt;		foo</div><div class="line">foo ?: bar</div><div class="line">				foo == null</div><div class="line">			    -----------&gt;		bar</div></pre></td></tr></table></figure>
+<h3 id="安全转换：“as-”"><a href="#安全转换：“as-”" class="headerlink" title="安全转换：“as?”"></a>安全转换：“as?”</h3><blockquote>
+<p>as?运算符尝试把值转换成指定的类型，如果值不是合适的类型就返回null</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">				foo is type</div><div class="line">				-----------&gt;		foo as Type</div><div class="line">foo as? Type</div><div class="line">				foo !is Type</div><div class="line">			    -----------&gt;		null</div></pre></td></tr></table></figure>
+<blockquote>
+<p>安全调用、安全转换和Elvis运算符都非常有用，它们出现在Kotlin代码中的频率很高。但有时你病不需要Kotlin的这些支持来处理null值，你只需要直接告诉编译器这个值实际上并不是null，所以我们就来继续看看如何做到这点</p>
+</blockquote>
+<h3 id="非空断言：“-”"><a href="#非空断言：“-”" class="headerlink" title="非空断言：“!!”"></a>非空断言：“!!”</h3><blockquote>
+<p>非空断言是Kotlin提供给你的最简单直率的处理可空类型值的工具。它使用双感叹号表示，可以把任何值转换成非空类型。如果对null值做非空断言，则会抛出异常</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">				foo != null</div><div class="line">				-----------&gt;		foo </div><div class="line">foo!!</div><div class="line">				foo == null</div><div class="line">			    -----------&gt;		null</div></pre></td></tr></table></figure>
+<h3 id="“let”函数"><a href="#“let”函数" class="headerlink" title="“let”函数"></a>“let”函数</h3><blockquote>
+<p>let函数就是把一个调用它的对象变成lambda表达式的参数。如果结合安全调用语法，他能有效的把调用let函数的可空对象转变成非空类型</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">				foo != null</div><div class="line">				-----------&gt;		在lambda内部it是非空的	</div><div class="line">foo?.let&#123;</div><div class="line"> ..it .. &#125;</div><div class="line">				foo == null</div><div class="line">			    -----------&gt;		什么都不会发生</div></pre></td></tr></table></figure>
+<p><strong>安全调用“let”只在表达式不为null时执行lambda</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">val email:String? = &quot;adu@163.com&quot;</div><div class="line">fun sendEmailTo(email:String)&#123;</div><div class="line">        println(&quot;email:$email&quot;)</div><div class="line"> &#125;</div><div class="line"> </div><div class="line"> //1、email非空时调用，在lambda中把email当作非空实参使用</div><div class="line"> email?.let&#123; email -&gt; sendEmailTo(email)&#125;</div><div class="line"> </div><div class="line"> //2、使用自动生成的名字it</div><div class="line"> email?.let&#123; sendEmailTo(it) &#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>注意，如果有一些很长的表达式结果不为null，而你又要使用这些结果时，let表示法特别方便。这种情况下你不必创建一个单独的变量。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">val person:Person? = getTheBestPerosnInTheWorld()</div><div class="line">if (perosn != null) sendEmailTo(person.email)</div><div class="line"></div><div class="line">//和功能相同但没有额外变量的代码</div><div class="line"></div><div class="line">getTheBestPerosnInTheWorld()?.let&#123; sendEmailTo(it.email)&#125;</div><div class="line"></div><div class="line">//这个函数返回null，所以lambda中的代码永远不会执行</div><div class="line"></div><div class="line">fun getTheBestPerosnInTheWorld() : Person? = null</div></pre></td></tr></table></figure>
+<blockquote>
+<p>还有一种情况是，属性最终是非空的，但不能使用非空值在构造方法中初始化。接下来我们看看Kotlin如何处理这种情况</p>
+</blockquote>
+<h3 id="延迟初始化的属性"><a href="#延迟初始化的属性" class="headerlink" title="延迟初始化的属性"></a>延迟初始化的属性</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">class MyService &#123;</div><div class="line">        fun performAction() :String = &quot;foo&quot;</div><div class="line">&#125;</div><div class="line"></div><div class="line">class MyTest &#123;</div><div class="line">    private lateinit var myService: MyService</div><div class="line">    @Before</div><div class="line">    fun setUp() &#123;</div><div class="line">        myService = MainActivity.MyService()</div><div class="line">    &#125;</div><div class="line">    @Test fun testAction() &#123;</div><div class="line">        Assert.assertEquals(&quot;foo&quot;,myService.performAction())</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>延迟初始化的属性都是var，因为需要在构造方法外修改它的值。尽管这个属性是非空类型，但是你不需要在构造方法中初始化它</p>
+</blockquote>
+<h3 id="可空类型的扩展"><a href="#可空类型的扩展" class="headerlink" title="可空类型的扩展"></a>可空类型的扩展</h3><blockquote>
+<p>用可空接收者调用扩展函数</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">fun verifyUserInput (input:String?)&#123;</div><div class="line">		//这里不需要安全调用</div><div class="line">        if (input.isNullOrBlank()) &#123;</div><div class="line">            println(&quot;Please fill in the required fields&quot;)</div><div class="line">        &#125;</div><div class="line">&#125;</div><div class="line">&gt;&gt;&gt;verifyUserInput(&quot; &quot;)</div><div class="line">Please fill in the required fields</div><div class="line">&gt;&gt;&gt;verifyUserInput(null)//这个接收者调用isNullorBlank并不会导致任何异常</div><div class="line">Please fill in the required fields</div></pre></td></tr></table></figure>
+<h3 id="类型参数的可空性"><a href="#类型参数的可空性" class="headerlink" title="类型参数的可空性"></a>类型参数的可空性</h3><blockquote>
+<p>Kotlin中所有泛型类和泛型函数的类型默认都是可空的。任何类型，包括可空类型在内。都可以替换类型参数</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">//处理可空的参数类型</div><div class="line">fun&lt;T&gt; printHashCode(t:T) &#123;</div><div class="line">	//因为“t”可能为null，所以必须使用安全调用</div><div class="line">   println(t?.hashCode())</div><div class="line">&#125;</div><div class="line">                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       </div><div class="line">&gt;&gt;&gt; printHashCode(null)	//“T”被推导成“Any?”</div><div class="line">&gt;&gt;&gt; null</div></pre></td></tr></table></figure>
+<blockquote>
+<p>上面代码中“T”被推导的类型时可空类型“Any?”，因此，尽管没有用问号结尾，实参t依然允许持有null</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">//为类型参数声明非空上界</div><div class="line">fun&lt;T: Any&gt; printHashCode(t:T) &#123; //现在T就不是可空的</div><div class="line">	</div><div class="line">   println(t.hashCode())</div><div class="line">&#125;</div><div class="line"></div><div class="line">&gt;&gt;&gt; printHashCode(null)	//这段代码是无法编译的，不能传递null，期望是非空值</div><div class="line">&gt;&gt;&gt; ERROR</div></pre></td></tr></table></figure>
+<h3 id="可空性和Java"><a href="#可空性和Java" class="headerlink" title="可空性和Java"></a>可空性和Java</h3><blockquote>
+<p>在实现Java类或者接口的方法时一定要搞清楚它的可空性。因为方法的实现可以在非Kotlin的代码中被调用，Kotlin编译器会为你声明的每一个非空的参数生成非空断言。如果Java代码传给这个方法一个null值，断言将会触发，你会得到一个异常，即便你从没有在你的实现中访问过这个参数的值。</p>
+</blockquote>
+<h3 id="基本数据类型和其他基本类型"><a href="#基本数据类型和其他基本类型" class="headerlink" title="基本数据类型和其他基本类型"></a>基本数据类型和其他基本类型</h3><blockquote>
+<p>Kotlin并不区分基本数据类型和它们的包装类</p>
+</blockquote>
+<h4 id="基本数据类型：Int、Boolean及其他"><a href="#基本数据类型：Int、Boolean及其他" class="headerlink" title="基本数据类型：Int、Boolean及其他"></a>基本数据类型：Int、Boolean及其他</h4><blockquote>
+<p>在Java中，不能对基本数据类型的值调用方法或者把他们存放在集合中，在需要对象的时候对基本数据进行封装。因此，你不能用<strong>Collection&lt;  int&gt;</strong>来定义一个整数的集合，而必须用<strong>Collection&lt; Integer&gt;</strong>来定义</p>
+<p>Kotlin并不区分基本类型和包装类型，你使用的永远是同一个类型（比如：Int）</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">val i: Int = 1</div><div class="line">Val list: List&lt;Int&gt; = listOf(1,2,3)</div></pre></td></tr></table></figure>
+<h4 id="可空的基本数据类型：Int-、Boolean？及其他"><a href="#可空的基本数据类型：Int-、Boolean？及其他" class="headerlink" title="可空的基本数据类型：Int?、Boolean？及其他"></a>可空的基本数据类型：Int?、Boolean？及其他</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">data class Person(val name: String,val age:Int? = null) &#123;</div><div class="line">    fun isOlderThan(other: Person):Boolean？&#123;</div><div class="line">        if (age == null || other.age == null)</div><div class="line">            return null</div><div class="line">        return age &gt; other.age</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>必须检查两个值都不为null，然后编译器才允许你正常的比较它们</p>
+</blockquote>
+<h4 id="数字转换"><a href="#数字转换" class="headerlink" title="数字转换"></a>数字转换</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">val i =1</div><div class="line">val l:Long = i	//错误：类型不匹配</div><div class="line"></div><div class="line">//因此，必须显式地进行转换</div><div class="line">val i =1</div><div class="line">val l:Long = i.toLong()</div></pre></td></tr></table></figure>
+<blockquote>
+<p>每一种基本数据类型（Boolean除外）都定义有转换函数：toByte()、toShort()、toChar()。这些函数都支持双向转换：既可以把小范围的类型括展到大范围，比如Int.toLong(),也可以把大范围的类型截取到小范围，比如Long.toInt()</p>
+<p>Kotlin要求转换必须是显式的</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">val x =1</div><div class="line">println(x in listof(1L,2L,3L))	//假设Kotlin支持隐式转换的话仍是false</div><div class="line">println(x.toLong() in listof(1L,2L,3L))//true</div></pre></td></tr></table></figure>
+<ul>
+<li>字符串转换</li>
+</ul>
+<blockquote>
+<p>kotlin标准库提供了一套相似的扩展方法，用来把字符串转换成基本数据类型（toInt、toByte、toBoolean等）</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">println(&quot;42&quot;.toInt())</div><div class="line">&gt;&gt;42</div></pre></td></tr></table></figure>
+<h4 id="“Any”和“Any-”-根类型"><a href="#“Any”和“Any-”-根类型" class="headerlink" title="“Any”和“Any?”:根类型"></a>“Any”和“Any?”:根类型</h4><blockquote>
+<p>在kotlin中，Any是所有类型的超类型(所有类型的根)，包括像Int这样的基本数据类型</p>
+<p>在java中，Object只是所有引用类型的超类(引用类型的根)，而基本数据类型并不是类层级结构的一部分</p>
+<p>注意Any是非空类型，所以Any类型的变量不可以持有null值。在Kotlin中如果需要可以持有任何可能值的变量，包括null在内，必须使用Any?类型</p>
+<p>当Kotlin函数使用Any时，它会被编译成Java字节码中的Object</p>
+</blockquote>
+<h4 id="Unit类型：Kotlin的“void”"><a href="#Unit类型：Kotlin的“void”" class="headerlink" title="Unit类型：Kotlin的“void”"></a>Unit类型：Kotlin的“void”</h4><blockquote>
+<p>Kotlin中的Unit类型完成了Java中的void一样的功能。<br>Unit是一个完备的类型，可以作为类型参数，而void却不行。<br>当重写返回泛型参数的函数时，只需要让方法返回Unit类型的值</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">interface Processor&lt;T&gt; &#123;</div><div class="line">	fun process() : T</div><div class="line">&#125;</div><div class="line"></div><div class="line">class NoResultProcessor : Processor&lt;Unit&gt; &#123;</div><div class="line">	//返回Unit，但可以省略类型说明</div><div class="line">	override fun process() &#123;</div><div class="line">	//do stuff</div><div class="line">	//这里不需要显式的return</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="Nothing类型：“这个函数永不返回”"><a href="#Nothing类型：“这个函数永不返回”" class="headerlink" title="Nothing类型：“这个函数永不返回”"></a>Nothing类型：“这个函数永不返回”</h4><blockquote>
+<p>在kotlin中throw是表达式，所以你可以使用塔作为Elvis表达式的一部分</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">val s = person.name ?: throw IllegalArgumentException(&quot;Name required)</div></pre></td></tr></table></figure>
+<blockquote>
+<p>throw表达式的类型是特殊类型Nothing。该类型没有值，而是用于标记永远不能达到的代码位置</p>
+</blockquote>
+<h3 id="集合与数组"><a href="#集合与数组" class="headerlink" title="集合与数组"></a>集合与数组</h3><blockquote>
+<p>kotlin以java集合库为基础构建，并通过扩展函数增加的特性来增强它</p>
+</blockquote>
+<h4 id="可空性和集合"><a href="#可空性和集合" class="headerlink" title="可空性和集合"></a>可空性和集合</h4><blockquote>
+<p>kotlin完全支持类型参数的可空性</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">fun readNumbers(reader: BufferedReader):List&lt;Int?&gt;&#123;</div><div class="line">        val result = ArrayList&lt;Int?&gt;() //创建包含可空Int值的列表</div><div class="line">        for (line in reader.lineSequence()) &#123;</div><div class="line">            try &#123;</div><div class="line">                val number = line.toInt()</div><div class="line">                result.add(number)      //向列表添加整数（非空值）</div><div class="line">            &#125;catch (e:NumberFormatException)&#123;</div><div class="line">                result.add(null)        //向列表添加null，因为当前行不能被解析成整数</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        return result</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>对包含可空值的集合使用filterNotNull</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">fun addValidNumbers(numbers:List&lt;Int?&gt;) &#123;</div><div class="line">        val validNumbers = numbers.filterNotNull()</div><div class="line">        println(&quot;sum of valid numbers: $&#123;validNumbers.sum()&#125;&quot;)</div><div class="line">        println(&quot;Invalid numbers: $&#123;numbers.size - validNumbers.size&#125;&quot;)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+                
+<p class="indigo-link-context">
+    <a href="/2018/06/11/RxJava的简单使用/" rel="next" title="RxJava的简单使用">
+    上一篇：RxJava的简单使用
+  </a>
+</p>
+
+
+
+<p class="indigo-link-context">
+    <a href="/2018/05/19/Nginx反向代理完成域名映射/" rel="next" title="Nginx反向代理完成域名映射">
+    下一篇：Nginx反向代理完成域名映射
+  </a>
+</p>
+
+
+            </div>
+			
+        </div>
+    </div>
+</article>
+
+
+
+
+
+
+</div>
+
+        <div class="fixed-action-btn float-sitemap">
+    <a class="btn-floating btn-large green">
+      <i class="fa fa-caret-square-o-up"></i>
+    </a>
+    <ul>
+      <li><a class="btn-return-top btn-floating waves-effect blue" title="回到顶部"><i class="fa fa-arrow-circle-o-up"></i></a></li>
+      <li><a class="btn-floating waves-effect button-collapse orange"  data-activates="main-menu" title="菜单"><i class="fa fa-navicon"></i></a></li>
+    </ul>
+  </div>
+
+    </main>
+    <footer class="page-footer indigo darken-1">
+    
+    <div class="footer-container container">
+        <div class="row">
+            
+            <div class="social-group col m4 s12">
+                <h5 class="white-text">社交</h5>
+                
+                    <a class="social-link" href="http://blog.csdn.net/m366917" target="_blank">
+                        <i class="fa fa-2x fa-weibo"></i>
+                    </a>
+                
+                    <a class="social-link" href="https://github.com/aduroidpc" target="_blank">
+                        <i class="fa fa-2x fa-github"></i>
+                    </a>
+                
+                    <a class="social-link" href="/atom.xml" target="_blank">
+                        <i class="fa fa-2x fa-rss"></i>
+                    </a>
+                
+                
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+    </script>
+    <div class="site-visitors-container white-text">
+        <span>
+            <i class="fa fa-user"></i>
+            <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+        </span>
+        <span>&nbsp;|&nbsp;</span>
+        <span>
+            <i class="fa fa-eye"></i>
+            <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+        </span>
+    </div>
+
+
+            </div>
+            
+
+            
+            <div class="col m8 s12">
+                <h5 class="white-text">友情链接</h5>
+                
+                    <a class="social-link" href="https://gdmec07120731.github.io/" target="_blank">ppjun</a>
+                
+                    <a class="social-link" href="http://blog.csdn.net/qq_26787115" target="_blank">刘某人</a>
+                
+                    <a class="social-link" href="http://lushengzhu.tk/" target="_blank">道哥</a>
+                
+                    <a class="social-link" href="http://azhong.tk/" target="_blank">阿钟</a>
+                
+                    <a class="social-link" href="http://www.hensen.site/" target="_blank">俊俊</a>
+                
+                    <a class="social-link" href="http://www.hbxiongsen.com/" target="_blank">林雄</a>
+                
+            </div>
+            
+        </div>
+    </div>
+    
+
+    <div class="footer-copyright indigo-link-context">
+        <div class="container">
+            陕ICP备18008694号 · Aduroidpc © 2018
+            <p class="right" style="margin-top: 0;">本博客由 <a href="https://hexo.io">Hexo</a> 强力驱动 | 主题 <a href="https://github.com/raytaylorlin/hexo-theme-raytaylorism">raytaylorism</a></p>
+        </div>
+    </div>
+</footer>
+
+
+    <noscript>
+    <div class="noscript">
+        <p class="center-align">当前网速较慢或者你使用的浏览器不支持博客特定功能，请尝试刷新或换用Chrome、Firefox等现代浏览器</p>
+    </div>
+</noscript>
+<div class="noscript">
+    <p class="center-align">当前网速较慢或者你使用的浏览器不支持博客特定功能，请尝试刷新或换用Chrome、Firefox等现代浏览器</p>
+</div>
+
+
+<script src="/js/jquery.min.js"></script>
+<script src="/js/materialize.min.js"></script>
+
+<script>
+    (function($) {
+        $(document).ready(function() {
+            // 隐藏禁用javascript（针对微信内置浏览器）的提示
+            $('.noscript').hide();
+
+            // 图片缩放效果
+            var $imgs = $('img').not('.slider-image').not('.avatar-image').not('.carousel-image').not('.card-cover-image').not('.qrcode');
+
+            // 给图片加上点击放大效果（materialbox插件）
+            $imgs.addClass('materialboxed').each(function(i, el) {
+                $(this).attr('data-caption', $(this).attr('alt') || ' ');
+            }).materialbox();
+
+            // 优化表格的显示
+            $('table').each(function() {
+                var $table = $(this);
+                // 除去多行代码的情况
+                if ($table.find('pre').length == 0) {
+                    $table.addClass('responsive-table striped bordered');
+                }
+            });
+
+            // 首页幻灯片
+            $('.slider').slider({indicators: true, full_width: true, interval: 8000});
+
+            $(".button-collapse").sideNav();
+            $(".category-menu").sideNav();
+
+            // 针对gallery post
+            $('.carousel').carousel({full_width: true});
+            $('.carousel-control.prev').click(function() {
+                $('.carousel').carousel('prev');
+            });
+            $('.carousel-control.next').click(function() {
+                $('.carousel').carousel('next');
+            });
+
+            // 文章目录
+            $('article').not('.simple-article').find('h1').add('h2').add('h3').add('h4').add('h5').add('h6').scrollSpy();
+
+            // 目录随屏幕滚动（防止目录过长越过footer）
+            var $toc = $('.toc');
+            var scrollTargetTop = 0;
+            $(window).scroll(function() {
+                var $activeLink = $toc.find('a.active.section');
+                if ($(window).scrollTop() < 100) {
+                    scrollTargetTop = 0;
+                } else {
+                    if ($activeLink[0]) {
+                        scrollTargetTop = $activeLink.offset().top - $toc.offset().top;
+                    }
+                }
+                $toc.css('top', '-' + scrollTargetTop + 'px');
+            });
+
+            // 修正文章目录的left-border颜色
+            var color = $('.table-of-contents-text').css('color');
+            $('.table-of-contents-link').css('border-left-color', color);
+
+            // 针对移动端做的优化：FAB按钮点击一下收回
+            if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+                $('.fixed-action-btn').addClass('click-to-toggle');
+            }
+            // 回到顶部
+            $('.btn-return-top').click(function() {
+                $('body, html').animate({
+                    scrollTop: 0
+                }, 500);
+            });
+
+            // 重置读书页面的Tab标签页的颜色
+            $('li.tab a').hover(function() {
+                $(this).toggleClass('text-lighten-4');
+            });
+            $('.indicator').addClass('green lighten-2');
+
+            
+            // 添加new标签
+            $('.menu-reading, .menu-about').append('<span class="new badge pink"></span>');
+            
+
+            // 搜索功能
+            $('.modal-trigger').leanModal({
+                // 打开搜索框时自动聚焦
+                ready: function() {
+                    if ($('#search').is(":visible")) {
+                        $('#search-input').focus();
+                    }
+                }
+            });
+            var searchXml = "";
+            if (searchXml.length == 0) {
+             	searchXml = "search.xml";
+            }
+            var searchPath = "/" + searchXml;
+            initSearch(searchPath, 'search-input', 'search-result');
+        });
+
+        // 初始化搜索与匹配函数
+        var initSearch = function(path, search_id, content_id) {
+            'use strict';
+            $.ajax({
+                url: path,
+                dataType: "xml",
+                success: function(xmlResponse) {
+                    // get the contents from search data
+                    var datas = $("entry", xmlResponse).map(function() {
+                        return {
+                            title: $("title", this).text(),
+                            content: $("content", this).text(),
+                            url: $("url", this).text()
+                        };
+                    }).get();
+                    var $input = document.getElementById(search_id);
+                    var $resultContent = document.getElementById(content_id);
+                    $input.addEventListener('input', function() {
+                        var str = '<ul class=\"search-result-list\">';
+                        var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                        $resultContent.innerHTML = "";
+                        if (this.value.trim().length <= 0) {
+                            return;
+                        }
+                        // perform local searching
+                        datas.forEach(function(data) {
+                            var isMatch = true;
+                            var content_index = [];
+                            var data_title = data.title.trim().toLowerCase();
+                            var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                            var data_url = data.url;
+                            var index_title = -1;
+                            var index_content = -1;
+                            var first_occur = -1;
+                            // only match artiles with not empty titles and contents
+                            if (data_title != '' && data_content != '') {
+                                keywords.forEach(function(keyword, i) {
+                                    index_title = data_title.indexOf(keyword);
+                                    index_content = data_content.indexOf(keyword);
+                                    if (index_title < 0 && index_content < 0) {
+                                        isMatch = false;
+                                    } else {
+                                        if (index_content < 0) {
+                                            index_content = 0;
+                                        }
+                                        if (i == 0) {
+                                            first_occur = index_content;
+                                        }
+                                    }
+                                });
+                            }
+                            // show search results
+                            if (isMatch) {
+                                keywords.forEach(function(keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    data_title = data_title.replace(regS, "<span class=\"search-keyword indigo lighten-2\">" + keyword + "</span>");
+                                });
+
+                                str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                                var content = data.content.trim().replace(/<[^>]+>/g, "");
+                                if (first_occur >= 0) {
+                                    // cut out 100 characters
+                                    var start = first_occur - 20;
+                                    var end = first_occur + 80;
+                                    if (start < 0) {
+                                        start = 0;
+                                    }
+                                    if (start == 0) {
+                                        end = 100;
+                                    }
+                                    if (end > content.length) {
+                                        end = content.length;
+                                    }
+                                    var match_content = content.substring(start, end);
+                                    // highlight all keywords
+                                    keywords.forEach(function(keyword) {
+                                        var regS = new RegExp(keyword, "gi");
+                                        match_content = match_content.replace(regS, "<span class=\"search-keyword indigo lighten-2\">" + keyword + "</span>");
+                                    });
+
+                                    str += "<p class=\"search-result\">..." + match_content + "...</p>"
+                                }
+                                str += "</li>";
+                            }
+                        });
+                        str += "</ul>";
+                        $resultContent.innerHTML = str;
+                    });
+                }
+            });
+        }
+    })(jQuery);
+</script>
+
+
+<script src="/js/prettify.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("pre").addClass("prettyprint");
+        prettyPrint();
+    });
+</script>
+
+
+
+
+<script type="text/javascript" src="http://tajs.qq.com/stats?sId=63695978" charset="UTF-8"></script>
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+});
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+
+</body>
+</html>

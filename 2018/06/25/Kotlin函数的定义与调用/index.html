@@ -1,0 +1,747 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    
+
+    <title>Kotlin函数的定义与调用 | aduroidpc’s Blog</title>
+    <meta name="author" content="阿杜">
+    
+    <meta name="description" content="每一个你不满意的现在，都有一个你没有努力的曾经。">
+    
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <meta property="og:title" content="Kotlin函数的定义与调用"/>
+    <meta property="og:site_name" content="aduroidpc’s Blog"/>
+
+    
+    <meta property="og:image" content="undefined"/>
+    
+
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="alternate" href="/atom.xml" title="aduroidpc’s Blog" type="application/atom+xml">
+    <link rel="stylesheet" href="/css/lib/materialize.min.css">
+    <link rel="stylesheet" href="/css/lib/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+
+    
+        <link rel="stylesheet" href="/css/lib/prettify-tomorrow-night-eighties.css" type="text/css">
+    
+    <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+</head>
+
+
+<body>
+    <img src="/weixin_favicon.png" style="position: absolute; left: -9999px; opacity: 0; filter: alpha(opacity=0);">
+
+    <nav class="indigo">
+    <div class="nav-wrapper">
+        <a href="#" data-activates="main-menu" class="button-collapse">
+            <i class="fa fa-navicon"></i>
+        </a>
+        <div class="">
+            <a href="/" class="brand-logo hide-on-med-and-down">aduroidpc’s Blog</a>
+            <ul class="right hide-on-med-and-down">
+                
+                    <li>
+                        <a class="menu-home " href="/" >
+                            <i class="fa fa-home "></i>
+                            
+                            首页
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-archive " href="/archives" >
+                            <i class="fa fa-archive "></i>
+                            
+                            归档
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-category category-menu" href="javascript:;" data-activates="category-menu" >
+                            <i class="fa fa-bookmark "></i>
+                            
+                            分类
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-about " href="/about" >
+                            <i class="fa fa-user "></i>
+                            
+                            关于
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-search modal-trigger " href="#search" >
+                            <i class="fa fa-search "></i>
+                            
+                            搜索
+                        </a>
+                    </li>
+                
+            </ul>
+            <div>
+    <ul class="side-nav indigo darken-1" id="main-menu">
+        
+        <li class="side-user">
+            <div class="row">
+                <div class="col s4 no-padding">
+                    <img class="avatar-image circle responsive-img" src="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1528430077841&amp;di=ae9a2af6f074f6242b64cac70cd9e81c&amp;imgtype=0&amp;src=http%3A%2F%2Fimg4.duitang.com%2Fuploads%2Fitem%2F201412%2F09%2F20141209021136_z2ufv.jpeg" alt="User Avatar">
+                </div>
+                <div class="info col s8 valign-wrapper no-padding">
+                    <div class="valign">
+                        <p class="name">aduroidpc</p>
+                        <p class="desc">Android developer</p>
+                    </div>
+                </div>
+            </div>
+        </li>
+        
+
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-home " href="/" >
+                    <i class="fa fa-home "></i>
+                    
+                    首页
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-archive " href="/archives" >
+                    <i class="fa fa-archive "></i>
+                    
+                    归档
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-category category-menu" href="javascript:;" data-activates="category-menu" >
+                    <i class="fa fa-bookmark "></i>
+                    
+                    分类
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-about " href="/about" >
+                    <i class="fa fa-user "></i>
+                    
+                    关于
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-search modal-trigger " href="#search" >
+                    <i class="fa fa-search "></i>
+                    
+                    搜索
+                </a>
+            </li>
+        
+    </ul>
+
+    <ul class="side-nav indigo darken-1" id="category-menu">
+    
+
+            
+
+    </ul>
+</div>
+
+        </div>
+    </div>
+</nav>
+
+<div id="search" class="modal search-modal">
+    <div class="row">
+        <div class="input-field col s12">
+              <input id="search-input" type="text">
+              <label for="search-input">搜索</label>
+        </div>
+
+    </div>
+    <div id="search-result" class="search-result col s12">
+
+    </div>
+</div>
+
+
+    <main>
+        <div class="container main-container">
+    <nav class="page-nav hide-on-small-only">
+    <div class="nav-wrapper indigo">
+        <span class="breadcrumb">当前位置（分类目录）</span>
+        
+            
+
+        
+
+        
+    </div>
+</nav>
+
+<article>
+    <div class="card">
+        <div class="card-content">
+            
+
+            <div class="article-title">
+                
+    
+        <h1>Kotlin函数的定义与调用</h1>
+    
+
+
+            </div>
+            <time class="indigo-link-context" datetime="2018-06-25T03:14:46.000Z"><a href="/2018/06/25/Kotlin函数的定义与调用/">2018-06-25</a></time>
+
+            <span id="busuanzi_container_page_pv" class="read-times-container">
+    <i class="fa fa-eye"></i>
+    <span id="busuanzi_value_page_pv"></span>
+</span>
+
+            
+    <div class="tags-row">
+        
+            <a href="/tags/Android/" class="chip green accent-4">Android</a>
+        
+    </div>
+
+
+            <div class="toc indigo-link-context hide-on-med-and-down">
+    <ol class="section table-of-contents"><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#Kotlin函数的定义与调用"><span class="section table-of-contents-text">Kotlin函数的定义与调用</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#在Kotlin中创建集合"><span class="section table-of-contents-text">在Kotlin中创建集合</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#让函数更好的调用"><span class="section table-of-contents-text">让函数更好的调用</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#命名参数"><span class="section table-of-contents-text">命名参数</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#默认参数值"><span class="section table-of-contents-text">默认参数值</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#给别人的类添加方法：扩展函数和属性"><span class="section table-of-contents-text">给别人的类添加方法：扩展函数和属性</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#导入和扩展函数"><span class="section table-of-contents-text">导入和扩展函数</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#从Java中调用扩展函数"><span class="section table-of-contents-text">从Java中调用扩展函数</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#作为扩展函数的工具函数"><span class="section table-of-contents-text">作为扩展函数的工具函数</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#不可重写的扩展函数"><span class="section table-of-contents-text">不可重写的扩展函数</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#扩展属性"><span class="section table-of-contents-text">扩展属性</span></a></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#处理集合：可变参数、中缀调用和库的支持"><span class="section table-of-contents-text">处理集合：可变参数、中缀调用和库的支持</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#扩展Java集合的API"><span class="section table-of-contents-text">扩展Java集合的API</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#可变参数：让函数支持任意数量的参数"><span class="section table-of-contents-text">可变参数：让函数支持任意数量的参数</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#键值对的处理：中缀调用和解构声明"><span class="section table-of-contents-text">键值对的处理：中缀调用和解构声明</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#字符串和正则表达式的处理"><span class="section table-of-contents-text">字符串和正则表达式的处理</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#分割字符串"><span class="section table-of-contents-text">分割字符串</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#正则表达式和三重引号的字符串"><span class="section table-of-contents-text">正则表达式和三重引号的字符串</span></a></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#让你的代码更整洁：局部函数和扩展"><span class="section table-of-contents-text">让你的代码更整洁：局部函数和扩展</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#小结"><span class="section table-of-contents-text">小结</span></a></li></ol></li></ol>
+</div>
+
+
+            <div class="entry indigo-link-context">
+                <h1 id="Kotlin函数的定义与调用"><a href="#Kotlin函数的定义与调用" class="headerlink" title="Kotlin函数的定义与调用"></a>Kotlin函数的定义与调用</h1><blockquote>
+<p>接下来我们学习Kotlin的一个重要环节，函数的声明和调用。将从Kotlin集合、字符串和正则表达式作为重点，先来看看如何在Kotlin中创建集合</p>
+</blockquote>
+<h2 id="在Kotlin中创建集合"><a href="#在Kotlin中创建集合" class="headerlink" title="在Kotlin中创建集合"></a>在Kotlin中创建集合</h2><blockquote>
+<p>我们可以创建一个list或者map</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">val set = hashSetOf(1,7,53)</div><div class="line">val list = arrayListOf(1,7,53)</div><div class="line">val map = hashSetOf(1 to &quot;one&quot;,7 to &quot;seven&quot;,53 to &quot;fifty-three&quot;)</div><div class="line"></div><div class="line">println(set.javaClass)  //class java.util.HashSet</div><div class="line">println(list.javaClass) //class java.util.ArrayList</div><div class="line">println(map.javaClass)  //class java.util.HashSet</div></pre></td></tr></table></figure>
+<ul>
+<li>to 并不是一个特殊的结构，只是一个普通的函数。后面我会学习关于它</li>
+</ul>
+<blockquote>
+<p>从上面可以看出kotlin并没有采用自己的集合类，而是采用的标准的java集合类。<br>尽管kotlin的集合类和Java的集合类完全一致，但是Kotlin还不止这些。例如：</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">val strings = listOf(&quot;first&quot;,&quot;second&quot;,&quot;fourteenth&quot;)</div><div class="line">println(strings.last())     //fourteenth</div><div class="line"></div><div class="line">val numbers = setOf(1,14,2)</div><div class="line">println(numbers.max())  //14</div></pre></td></tr></table></figure>
+<blockquote>
+<p>在讨论如何操作last和max这两个神奇的函数之前，我们先来学习一下函数声明</p>
+</blockquote>
+<h2 id="让函数更好的调用"><a href="#让函数更好的调用" class="headerlink" title="让函数更好的调用"></a>让函数更好的调用</h2><blockquote>
+<p>java的集合都有一个默认的toString实现，但是它的格式化的输出是固定的，往往不是我们需要的样子</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">val lists = listOf(1,2,3)</div><div class="line">println(lists)  //[1, 2, 3]</div></pre></td></tr></table></figure>
+<p>假如我们要得到这样的打印效果<strong>(1;2;3)</strong> ,在Java项目会使用第三方库来完成。在Kotlin中，他的标准库中有一个专门的函数来处理这种情况。<br>下面的joinToString函数就展现了通过在元素间添加分割符号，在最前面添加前缀，在最末添加后缀的方式把集合元素逐个添加到一个StringBuilder的过程</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">fun &lt;T&gt; joinToString(collection: Collection&lt;T&gt;,</div><div class="line">                         separator: String,</div><div class="line">                         prefix: String,</div><div class="line">                         postfix: String):String&#123;</div><div class="line">        val result = StringBuilder(prefix)</div><div class="line"></div><div class="line">        for ((index,element) in collection.withIndex())&#123;</div><div class="line">            println(&quot;$index---$element&quot;)</div><div class="line">            if (index &gt; 0) result.append(separator)</div><div class="line">            result.append(element)</div><div class="line">        &#125;</div><div class="line">        result.append(postfix)</div><div class="line">        return result.toString()</div><div class="line">&#125;</div><div class="line"></div><div class="line">println(joinToString(lists,&quot;;&quot;,&quot;(&quot;,&quot;)&quot;))</div></pre></td></tr></table></figure>
+<blockquote>
+<p>这个函数是泛型：它可以支持元素为任意类型的集合。<br>这个方法是可行的，但是怎么让它更简洁呢?避免每次都调用的时候都传入4个参数</p>
+</blockquote>
+<h3 id="命名参数"><a href="#命名参数" class="headerlink" title="命名参数"></a>命名参数</h3><blockquote>
+<p>我们要关注函数的可读性，比如joinToString(lists,” “,” “,”.”)，我们看不出String对应的都是什么参数。<br>但是在Kotlin中，可以做的更优雅</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">joinToString(lists,separator = &quot; &quot;,prefix = &quot; &quot;,postfix = &quot;.&quot;)</div></pre></td></tr></table></figure>
+<p>当调用一个Kotlin定义的函数时，可以显式地标明一些参数的名称。如果调用一个函数时，指明了一个参数名称，为了避免混淆，之后所有的参数都需要标明名称。</p>
+<h3 id="默认参数值"><a href="#默认参数值" class="headerlink" title="默认参数值"></a>默认参数值</h3><blockquote>
+<p>java的另一个普遍存在的问题时，一些类的重载函数实在太多了。<br>在Kotlin中，可以在声明函数的时候，指定参数的默认值，这样就可以避免创建重载函数，我们尝试改进一下前面的joinToString函数</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">fun &lt;T&gt; joinToString(collection: Collection&lt;T&gt;,</div><div class="line">                         separator: String=&quot;,&quot;,</div><div class="line">                         prefix: String=&quot;&quot;,</div><div class="line">                         postfix: String=&quot;&quot;):String</div><div class="line"> 现在可以用所有参数来调用这个函数，或者省略掉部分参数</div><div class="line"> joinToString(list,&quot;, &quot;,&quot;&quot;, &quot;&quot;)	//1, 2, 3</div><div class="line"> joinToString(list)					//1, 2, 3</div><div class="line"> joinToString(list,&quot;;&quot;)				//1; 2; 3</div></pre></td></tr></table></figure>
+<blockquote>
+<p>当使用常规调用语法时，必须按照函数声明中定义的参数顺序来给定参数，可以省略只排在末尾的参数，如果使用命名参数，可以省略中间的一些参数，也可以以任意顺序只给定你需要的参数</p>
+</blockquote>
+<h3 id="给别人的类添加方法：扩展函数和属性"><a href="#给别人的类添加方法：扩展函数和属性" class="headerlink" title="给别人的类添加方法：扩展函数和属性"></a>给别人的类添加方法：扩展函数和属性</h3><blockquote>
+<p>Kotlin的一大特色，就是可以平滑地与现有代码集成。甚至，纯Kotlin的项目都可以基于Java库构建，如：JDK、Android框架，以及其他的第三方框架。<br>理论上说，扩展函数非常简单，他就是一个类的成员函数，不过定义在类的外面，我们来看一个例子</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">fun String.lastChar() : Char = this.get(this.length - 1)</div><div class="line">接收者类型是由扩展函数定义的，接收者对象是该类型的一个实例</div><div class="line">fun main(args:Array&lt;String&gt;)&#123;</div><div class="line">    println(&quot;kotlin&quot;.lastChar())</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>我们可以看到，String就是接收者类型，而”kotlin”就是接收者对象</p>
+<p>注意：扩展函数并不允许你打破它的封装性。和在类内部定义的方法不同的是，扩展函数不能访问私有的或者是受保护的成员。</p>
+</blockquote>
+<h3 id="导入和扩展函数"><a href="#导入和扩展函数" class="headerlink" title="导入和扩展函数"></a>导入和扩展函数</h3><blockquote>
+<p>定义一个扩展函数，他不会自动地在整个项目范围内生效。所以，如果要使用它，需要进行导入，就像其他任何的类或者函数一样。这是为了避免偶然性的命名冲突。Kotlin允许用和导入类一样的语法来导入单个函数</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">import base.lastChar</div><div class="line">val c = &quot;kotlin&quot;.lastChar()</div><div class="line"></div><div class="line">当然也可以用 * 来导入</div><div class="line"></div><div class="line">import base.*</div><div class="line">val c = &quot;kotlin&quot;.lastChar()</div><div class="line"></div><div class="line">可以使用关键字as来修改导入的类或者函数名称</div><div class="line">import base.lastChar as last</div><div class="line">val c = &quot;kotlin&quot;.last()</div></pre></td></tr></table></figure>
+<blockquote>
+<p>当在不同的包中，有一些重名的函数，再导入时给它重新命名就显得很有必要了，就可以在同一个文件中使用它们。<br>对于扩展函数，kotlin的语法要求使用简短的名称，那么关键字as就是解决命名冲突问题的唯一方式</p>
+</blockquote>
+<h3 id="从Java中调用扩展函数"><a href="#从Java中调用扩展函数" class="headerlink" title="从Java中调用扩展函数"></a>从Java中调用扩展函数</h3><blockquote>
+<p>实质上，扩展函数时静态函数。调用这个静态函数，然后把接收者对象作为第一个参数穿进去即可。<br>假设这个方法声明在一个叫作StringUtil.kt的文件中，那么在java中调用的时候</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">char c = StringUtilKt.lastChar(&quot;java&quot;);</div></pre></td></tr></table></figure>
+<blockquote>
+<p>这个扩展函数被声明为顶层函数，所以它会被编译为一个静态函数。在Java中导入lastChar函数，就可以直接使用它了。</p>
+</blockquote>
+<h3 id="作为扩展函数的工具函数"><a href="#作为扩展函数的工具函数" class="headerlink" title="作为扩展函数的工具函数"></a>作为扩展函数的工具函数</h3><blockquote>
+<p>学习和了解了上面知识点，我们可以写一个joinToString函数的中级版本了，它和kotlin标准库中看到的一模一样</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">fun &lt;T&gt; Collection&lt;T&gt;.joinToString(separator: String=&quot;,&quot;,</div><div class="line">                                        prefix: String=&quot;&quot;,</div><div class="line">                                        postfix: String=&quot;&quot;):String &#123;</div><div class="line">        val result = StringBuilder(prefix)</div><div class="line">        for ((index,element) in this.withIndex())&#123;</div><div class="line">            if (index &gt; 0) result.append(separator)</div><div class="line">            result.append(element)</div><div class="line">        &#125;</div><div class="line">        result.append(postfix)</div><div class="line">        return result.toString()</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    val list = listOf(1,2,3)</div><div class="line">    println(list.joinToString(separator = &quot;; &quot;,prefix = &quot;(&quot;,postfix = &quot;)&quot;))</div></pre></td></tr></table></figure>
+<blockquote>
+<p>这样元素的集合类添加一个扩展函数，然后给所有的参数添加一个默认值。然后就可以像使用一个类的成员函数一样去调用joinToString了</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">val list = listOf(1,2,3)</div><div class="line">println(list.joinToStrings(&quot; &quot;))</div><div class="line">//1 2 3</div></pre></td></tr></table></figure>
+<blockquote>
+<p>扩展函数无非就是静态函数的一个高效的语法糖，可以使用更具体的类型来作为接收者类型，而不是一个类.假设要一个join函数，只能有字符串集合来触发</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">fun Collection&lt;String&gt;.join(separator: String=&quot;,&quot;,</div><div class="line">                                prefix: String=&quot;&quot;,</div><div class="line">                                postfix: String=&quot;&quot;) = joinToStrings(separator, prefix, postfix)</div><div class="line"></div><div class="line">println(listOf(&quot;one&quot;,&quot;two&quot;,&quot;three&quot;).join(&quot;;&quot;))</div><div class="line">//one;two;three</div><div class="line"></div><div class="line">//不能用其他类型的对象列表来调用，会报错</div></pre></td></tr></table></figure>
+<blockquote>
+<p>扩展函数的静态性质也决定了扩展函数不能被子类重写</p>
+</blockquote>
+<h3 id="不可重写的扩展函数"><a href="#不可重写的扩展函数" class="headerlink" title="不可重写的扩展函数"></a>不可重写的扩展函数</h3><blockquote>
+<p>扩展函数并不是类的一部分，它是声明在类之外的。尽管可以给基类和子类都分别定义一个同名的扩展函数，但是当这个函数被调用是，它会调用哪一个呢？这里它是由该变量的静态类型所决定的，而不是这个变量的运行时类型</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">fun Any.showOff() = println(&quot;any&quot;)</div><div class="line">fun String.showOff() = println(&quot;string&quot;)</div><div class="line">val str:Any = String()</div><div class="line">str.showOff()   //any</div></pre></td></tr></table></figure>
+<blockquote>
+<p>当调用一个类型为Any的变量的showOff函数时，对应的扩展函数会被调用，尽管实际上这个变量现在是一个String的对象</p>
+</blockquote>
+<h3 id="扩展属性"><a href="#扩展属性" class="headerlink" title="扩展属性"></a>扩展属性</h3><blockquote>
+<p>扩展属性提供了一种方法，用来扩展类的API，可以用来访问属性，用的是属性语法而不是函数的语法。</p>
+<p>我们将上面的lastChar函数转换成一个属性试试</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">声明一个扩展属性</div><div class="line">val String.lastChar:Char get() = get(length -1)</div></pre></td></tr></table></figure>
+<blockquote>
+<p>可以看到和扩展函数一样，扩展属性也像接收者的一个普通的成员属性一样。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">声明一个可变的扩展属性</div><div class="line">var StringBuilder.lastChar:Char</div><div class="line">    get() = get(length -1)</div><div class="line">    set(value) &#123;</div><div class="line">        this.setCharAt(length-1,value)</div><div class="line">    &#125;</div><div class="line">    </div><div class="line"> val sb = StringBuilder(&quot;kotlin!&quot;)</div><div class="line">    sb.lastChar = &apos;?&apos;</div><div class="line">    println(sb)	//kotlin?</div></pre></td></tr></table></figure>
+<blockquote>
+<p>关于扩展函数和属性的概念我们已经了解了一些，我们回到集合的话题，看一些库提供的能帮助你处理集合的函数，以及伴随而来的语言特性</p>
+</blockquote>
+<h2 id="处理集合：可变参数、中缀调用和库的支持"><a href="#处理集合：可变参数、中缀调用和库的支持" class="headerlink" title="处理集合：可变参数、中缀调用和库的支持"></a>处理集合：可变参数、中缀调用和库的支持</h2><blockquote>
+<p>我们来学习Kotlin标准库中用来处理集合的一些方法</p>
+</blockquote>
+<h3 id="扩展Java集合的API"><a href="#扩展Java集合的API" class="headerlink" title="扩展Java集合的API"></a>扩展Java集合的API</h3><blockquote>
+<p>获取列表中最后一个元素并找到数字集合中的最大值</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">val strings:List&lt;String&gt; = listOf(&quot;first&quot;,&quot;second&quot;,&quot;three&quot;)</div><div class="line">println(strings.last())</div><div class="line">    </div><div class="line">val numbers: Collection&lt;Int&gt; = setOf(1,2,3)</div><div class="line">println(numbers.max())</div></pre></td></tr></table></figure>
+<blockquote>
+<p>函数last和max都被声明成了扩展函数，许多扩展函数在Kotlin标准库中都有声明</p>
+</blockquote>
+<h3 id="可变参数：让函数支持任意数量的参数"><a href="#可变参数：让函数支持任意数量的参数" class="headerlink" title="可变参数：让函数支持任意数量的参数"></a>可变参数：让函数支持任意数量的参数</h3><blockquote>
+<p>Kotlin的可变参数与java类似，但语法略有不同：<br>当需要传递的参数已经包装在数组中时，调用该函数的语法。在Java中可以按原样传递数组，而Kotlin则要求显式地解包数组，以便每个数组元素在函数中能作为单独的参数来调用。这被称为展开运算符。使用的时候在对应的参数前面放一个*</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">val list = listOf(&quot;args:&quot;,*args)</div><div class="line">println(list)</div></pre></td></tr></table></figure>
+<blockquote>
+<p>上面代码通过展开运算符，可以在单个调用中组合开自数组的值和某些固定值。在java中并不支持。</p>
+</blockquote>
+<h3 id="键值对的处理：中缀调用和解构声明"><a href="#键值对的处理：中缀调用和解构声明" class="headerlink" title="键值对的处理：中缀调用和解构声明"></a>键值对的处理：中缀调用和解构声明</h3><blockquote>
+<p>可以用mapOf函数来创建map：</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">val map = mapOf(1 to &quot;one&quot;,7 to &quot;seven&quot;,53 to &quot;fifty-three&quot;)</div></pre></td></tr></table></figure>
+<blockquote>
+<p>代码中的单词 to 不是内置结构，而是一种特殊的函数调用，被称为中缀调用.<br>在中缀调用中，没有添加额外的分隔符，函数名称是直接放在目标对象名称和参数之间的。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">下面两种调用方式是等价的</div><div class="line">1.to(&quot;one&quot;)		//一般to函数的调用</div><div class="line">1 to &quot;one&quot;		//使用中缀符号调用to函数</div></pre></td></tr></table></figure>
+<blockquote>
+<p>中缀调用可以与只有一个参数的函数一起调用，无论是普通的函数还是扩展函数。要允许使用中缀符号调用函数，需要使用infix修饰符来标记它。下面是一个简单的to函数的声明：</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">infix fun Any.to(other: Any) = Pair(this,other)</div></pre></td></tr></table></figure>
+<blockquote>
+<p>to 函数会返回一个Pair类型的对象，Pair是Kotlin标准库中的类，它会用来表示一对元素。</p>
+</blockquote>
+<h3 id="字符串和正则表达式的处理"><a href="#字符串和正则表达式的处理" class="headerlink" title="字符串和正则表达式的处理"></a>字符串和正则表达式的处理</h3><blockquote>
+<p>Kotlin字符串与Java字符串完全相同。Kotlin通过提供一系列游泳的扩展函数，使标准java字符串使用起来更加方便。</p>
+</blockquote>
+<h3 id="分割字符串"><a href="#分割字符串" class="headerlink" title="分割字符串"></a>分割字符串</h3><blockquote>
+<p>Kotlin提供了一个名为split的具有不同参数的重载的扩展函数。用来承载正则表达式的值需要一个Regex类型，而不是String。<br>这样确保了当有一个字符串传递给这些函数的时候，不会被当作正则表达式。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">println(&quot;12.345-6.A&quot;.split(&quot;\\.|-&quot;.toRegex()))   //显式的创建一个正则表达式</div></pre></td></tr></table></figure>
+<blockquote>
+<p>在Kotlin中，可以使用扩展函数toRegex将字符串转换为正则表达式。但是对于一些简单的情况，就不需要使用正则表达式了。<br>Kotlin中的splite扩展函数的其他重载支持任意数量的纯文本字符串分隔符</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">println(&quot;12.345-6.A&quot;.split(&quot;.&quot;,&quot;-&quot;))		//指定多个分隔符</div></pre></td></tr></table></figure>
+<blockquote>
+<p>这样的结果是想同的</p>
+</blockquote>
+<h3 id="正则表达式和三重引号的字符串"><a href="#正则表达式和三重引号的字符串" class="headerlink" title="正则表达式和三重引号的字符串"></a>正则表达式和三重引号的字符串</h3><blockquote>
+<p>解析字符串在Kotlin中很容易，不需要正则表达式，我们来看代码</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">fun parsepath(path:String)&#123;</div><div class="line">    val directory = path.substringBeforeLast(&quot;/&quot;)</div><div class="line">    val fullName = path.substringAfterLast(&quot;/&quot;)</div><div class="line"></div><div class="line">    val fileName = fullName.substringBeforeLast(&quot;.&quot;)</div><div class="line">    val extension = fullName.substringAfterLast(&quot;.&quot;)</div><div class="line">    println(&quot;Dir: $directory,name: $fileName,ext: $extension&quot;)</div><div class="line">&#125;</div><div class="line">parsepath(&quot;/Users/yole/kotlin-book/chapter.adoc&quot;)</div><div class="line">//Dir: /Users/yole/kotlin-book,name: chapter,ext: adoc</div></pre></td></tr></table></figure>
+<blockquote>
+<p>使用substringBeforeLast和substringAfterLast函数将一个路径分割为目录、文件名和扩展名</p>
+<p>如果你确实要使用正则表达式来完成，也可以使用Kotlin标准库。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">fun parsepaths(path:String)&#123;</div><div class="line">    val regex = &quot;&quot;&quot;(.+)/(.+)\.(.+)&quot;&quot;&quot;.toRegex()</div><div class="line">    val matchResult = regex.matchEntire(path)</div><div class="line">    if (matchResult != null) &#123;</div><div class="line">        val (directory,filename,extension) = matchResult.destructured</div><div class="line">        println(&quot;Dir: $directory,name: $filename,ext: $extension&quot;)</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>这个函数中，正则表达式写在一个三重引号的字符串中。在这样的字符串中，不需要对任何字符进行转义，包括反斜线，所以可以有用.而不是\.来表示点</p>
+</blockquote>
+<h2 id="让你的代码更整洁：局部函数和扩展"><a href="#让你的代码更整洁：局部函数和扩展" class="headerlink" title="让你的代码更整洁：局部函数和扩展"></a>让你的代码更整洁：局部函数和扩展</h2><blockquote>
+<p>我们来看看，怎么使用局部函数，来解决常见的代码重复问题</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">## 带重复代码的函数</div><div class="line">class Users(val id:Int,val name:String,val address: String)</div><div class="line"></div><div class="line">fun saveUser(users: Users)&#123;</div><div class="line">    if (users.name.isEmpty())&#123;</div><div class="line">        throw IllegalArgumentException(&quot;不能保存用户$&#123;users.id&#125;为空的名字&quot;)</div><div class="line">    &#125;</div><div class="line">    if (users.address.isEmpty())&#123;</div><div class="line">        throw IllegalArgumentException(&quot;不能保存用户$&#123;users.address&#125;为空的地址&quot;)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">saveUser(Users(1,&quot;&quot;,&quot;&quot;))</div><div class="line">//Exception in thread &quot;main&quot; java.lang.IllegalArgumentException: 不能保存用户1为空的名字</div></pre></td></tr></table></figure>
+<blockquote>
+<p>我们如果将验证码放到局部函数中，可以摆脱重复，并保持清晰的代码结构.<br>局部函数可以访问所在函数中的所有参数和变量</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">class Users(val id:Int,val name:String,val address: String)</div><div class="line">fun saveUsers(users: Users)&#123;</div><div class="line">    fun validate(value: String, fieldName:String)&#123;</div><div class="line">        if (value.isEmpty())&#123;</div><div class="line">            throw IllegalArgumentException(&quot;不能保存用户$&#123;users.id&#125;为空的$fieldName&quot;)</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    validate(users.name,&quot;Name&quot;)</div><div class="line">    validate(users.address,&quot;Address&quot;)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>我们还可以继续改进，把验证逻辑放在Users类的扩展函数中</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">class Users(val id:Int,val name:String,val address: String)</div><div class="line">fun Users.validateBeforeSave() &#123;</div><div class="line">    fun validate(value: String, fieldName:String)&#123;</div><div class="line">        if (value.isEmpty())&#123;</div><div class="line">            throw IllegalArgumentException(&quot;不能保存用户$id 为空的$fieldName&quot;)</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    validate(name,&quot;Name&quot;)</div><div class="line">    validate(address,&quot;Address&quot;)</div><div class="line">&#125;</div><div class="line">//调用扩展函数</div><div class="line">fun saveUser(users: Users)&#123;</div><div class="line">    users.validateBeforeSave()</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>扩展函数也可以被声明为局部函数，所以这里可以将users.validateBeforeSave作为局部函数放在saveUser中，但是深度嵌套的局部函数让人费解，因此我们一般不建议使用多层嵌套</p>
+</blockquote>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><ul>
+<li>Kotlin没有定义自己的集合类，而是在java集合类的基础上提供了更丰富的API</li>
+<li>Kotlin可以给函数参数定义默认值，这样大大降低了重载函数的必要性，而且命名参数让多函数的调用更加易读。</li>
+<li>Kotlin允许更灵活的代码结构：函数和属性都可以直接在文件中声明，而不仅仅是在类中作为成员</li>
+<li>Kotlin可以用扩展函数和属性来扩展任何类的API，包括在外部库中定义的类</li>
+<li>中缀调用提供了处理单个参数的，类似调用运算符方法的简明语法</li>
+<li>Kotlin为普通字符串和正则表达式都提供了大量的方便字符串处理的函数</li>
+<li>局部函数帮助你保持代码整洁的同时，避免重复</li>
+</ul>
+
+                
+<p class="indigo-link-context">
+    <a href="/2018/07/26/CSS背景和列表/" rel="next" title="CSS背景和列表">
+    上一篇：CSS背景和列表
+  </a>
+</p>
+
+
+
+<p class="indigo-link-context">
+    <a href="/2018/06/11/RxJava操作符及相关案例/" rel="next" title="RxJava操作符及相关案例">
+    下一篇：RxJava操作符及相关案例
+  </a>
+</p>
+
+
+            </div>
+			
+        </div>
+    </div>
+</article>
+
+
+
+
+
+
+</div>
+
+        <div class="fixed-action-btn float-sitemap">
+    <a class="btn-floating btn-large green">
+      <i class="fa fa-caret-square-o-up"></i>
+    </a>
+    <ul>
+      <li><a class="btn-return-top btn-floating waves-effect blue" title="回到顶部"><i class="fa fa-arrow-circle-o-up"></i></a></li>
+      <li><a class="btn-floating waves-effect button-collapse orange"  data-activates="main-menu" title="菜单"><i class="fa fa-navicon"></i></a></li>
+    </ul>
+  </div>
+
+    </main>
+    <footer class="page-footer indigo darken-1">
+    
+    <div class="footer-container container">
+        <div class="row">
+            
+            <div class="social-group col m4 s12">
+                <h5 class="white-text">社交</h5>
+                
+                    <a class="social-link" href="http://blog.csdn.net/m366917" target="_blank">
+                        <i class="fa fa-2x fa-weibo"></i>
+                    </a>
+                
+                    <a class="social-link" href="https://github.com/aduroidpc" target="_blank">
+                        <i class="fa fa-2x fa-github"></i>
+                    </a>
+                
+                    <a class="social-link" href="/atom.xml" target="_blank">
+                        <i class="fa fa-2x fa-rss"></i>
+                    </a>
+                
+                
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+    </script>
+    <div class="site-visitors-container white-text">
+        <span>
+            <i class="fa fa-user"></i>
+            <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+        </span>
+        <span>&nbsp;|&nbsp;</span>
+        <span>
+            <i class="fa fa-eye"></i>
+            <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+        </span>
+    </div>
+
+
+            </div>
+            
+
+            
+            <div class="col m8 s12">
+                <h5 class="white-text">友情链接</h5>
+                
+                    <a class="social-link" href="https://gdmec07120731.github.io/" target="_blank">ppjun</a>
+                
+                    <a class="social-link" href="http://blog.csdn.net/qq_26787115" target="_blank">刘某人</a>
+                
+                    <a class="social-link" href="http://lushengzhu.tk/" target="_blank">道哥</a>
+                
+                    <a class="social-link" href="http://azhong.tk/" target="_blank">阿钟</a>
+                
+                    <a class="social-link" href="http://www.hensen.site/" target="_blank">俊俊</a>
+                
+                    <a class="social-link" href="http://www.hbxiongsen.com/" target="_blank">林雄</a>
+                
+            </div>
+            
+        </div>
+    </div>
+    
+
+    <div class="footer-copyright indigo-link-context">
+        <div class="container">
+            陕ICP备18008694号 · Aduroidpc © 2018
+            <p class="right" style="margin-top: 0;">本博客由 <a href="https://hexo.io">Hexo</a> 强力驱动 | 主题 <a href="https://github.com/raytaylorlin/hexo-theme-raytaylorism">raytaylorism</a></p>
+        </div>
+    </div>
+</footer>
+
+
+    <noscript>
+    <div class="noscript">
+        <p class="center-align">当前网速较慢或者你使用的浏览器不支持博客特定功能，请尝试刷新或换用Chrome、Firefox等现代浏览器</p>
+    </div>
+</noscript>
+<div class="noscript">
+    <p class="center-align">当前网速较慢或者你使用的浏览器不支持博客特定功能，请尝试刷新或换用Chrome、Firefox等现代浏览器</p>
+</div>
+
+
+<script src="/js/jquery.min.js"></script>
+<script src="/js/materialize.min.js"></script>
+
+<script>
+    (function($) {
+        $(document).ready(function() {
+            // 隐藏禁用javascript（针对微信内置浏览器）的提示
+            $('.noscript').hide();
+
+            // 图片缩放效果
+            var $imgs = $('img').not('.slider-image').not('.avatar-image').not('.carousel-image').not('.card-cover-image').not('.qrcode');
+
+            // 给图片加上点击放大效果（materialbox插件）
+            $imgs.addClass('materialboxed').each(function(i, el) {
+                $(this).attr('data-caption', $(this).attr('alt') || ' ');
+            }).materialbox();
+
+            // 优化表格的显示
+            $('table').each(function() {
+                var $table = $(this);
+                // 除去多行代码的情况
+                if ($table.find('pre').length == 0) {
+                    $table.addClass('responsive-table striped bordered');
+                }
+            });
+
+            // 首页幻灯片
+            $('.slider').slider({indicators: true, full_width: true, interval: 8000});
+
+            $(".button-collapse").sideNav();
+            $(".category-menu").sideNav();
+
+            // 针对gallery post
+            $('.carousel').carousel({full_width: true});
+            $('.carousel-control.prev').click(function() {
+                $('.carousel').carousel('prev');
+            });
+            $('.carousel-control.next').click(function() {
+                $('.carousel').carousel('next');
+            });
+
+            // 文章目录
+            $('article').not('.simple-article').find('h1').add('h2').add('h3').add('h4').add('h5').add('h6').scrollSpy();
+
+            // 目录随屏幕滚动（防止目录过长越过footer）
+            var $toc = $('.toc');
+            var scrollTargetTop = 0;
+            $(window).scroll(function() {
+                var $activeLink = $toc.find('a.active.section');
+                if ($(window).scrollTop() < 100) {
+                    scrollTargetTop = 0;
+                } else {
+                    if ($activeLink[0]) {
+                        scrollTargetTop = $activeLink.offset().top - $toc.offset().top;
+                    }
+                }
+                $toc.css('top', '-' + scrollTargetTop + 'px');
+            });
+
+            // 修正文章目录的left-border颜色
+            var color = $('.table-of-contents-text').css('color');
+            $('.table-of-contents-link').css('border-left-color', color);
+
+            // 针对移动端做的优化：FAB按钮点击一下收回
+            if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+                $('.fixed-action-btn').addClass('click-to-toggle');
+            }
+            // 回到顶部
+            $('.btn-return-top').click(function() {
+                $('body, html').animate({
+                    scrollTop: 0
+                }, 500);
+            });
+
+            // 重置读书页面的Tab标签页的颜色
+            $('li.tab a').hover(function() {
+                $(this).toggleClass('text-lighten-4');
+            });
+            $('.indicator').addClass('green lighten-2');
+
+            
+            // 添加new标签
+            $('.menu-reading, .menu-about').append('<span class="new badge pink"></span>');
+            
+
+            // 搜索功能
+            $('.modal-trigger').leanModal({
+                // 打开搜索框时自动聚焦
+                ready: function() {
+                    if ($('#search').is(":visible")) {
+                        $('#search-input').focus();
+                    }
+                }
+            });
+            var searchXml = "";
+            if (searchXml.length == 0) {
+             	searchXml = "search.xml";
+            }
+            var searchPath = "/" + searchXml;
+            initSearch(searchPath, 'search-input', 'search-result');
+        });
+
+        // 初始化搜索与匹配函数
+        var initSearch = function(path, search_id, content_id) {
+            'use strict';
+            $.ajax({
+                url: path,
+                dataType: "xml",
+                success: function(xmlResponse) {
+                    // get the contents from search data
+                    var datas = $("entry", xmlResponse).map(function() {
+                        return {
+                            title: $("title", this).text(),
+                            content: $("content", this).text(),
+                            url: $("url", this).text()
+                        };
+                    }).get();
+                    var $input = document.getElementById(search_id);
+                    var $resultContent = document.getElementById(content_id);
+                    $input.addEventListener('input', function() {
+                        var str = '<ul class=\"search-result-list\">';
+                        var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                        $resultContent.innerHTML = "";
+                        if (this.value.trim().length <= 0) {
+                            return;
+                        }
+                        // perform local searching
+                        datas.forEach(function(data) {
+                            var isMatch = true;
+                            var content_index = [];
+                            var data_title = data.title.trim().toLowerCase();
+                            var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                            var data_url = data.url;
+                            var index_title = -1;
+                            var index_content = -1;
+                            var first_occur = -1;
+                            // only match artiles with not empty titles and contents
+                            if (data_title != '' && data_content != '') {
+                                keywords.forEach(function(keyword, i) {
+                                    index_title = data_title.indexOf(keyword);
+                                    index_content = data_content.indexOf(keyword);
+                                    if (index_title < 0 && index_content < 0) {
+                                        isMatch = false;
+                                    } else {
+                                        if (index_content < 0) {
+                                            index_content = 0;
+                                        }
+                                        if (i == 0) {
+                                            first_occur = index_content;
+                                        }
+                                    }
+                                });
+                            }
+                            // show search results
+                            if (isMatch) {
+                                keywords.forEach(function(keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    data_title = data_title.replace(regS, "<span class=\"search-keyword indigo lighten-2\">" + keyword + "</span>");
+                                });
+
+                                str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                                var content = data.content.trim().replace(/<[^>]+>/g, "");
+                                if (first_occur >= 0) {
+                                    // cut out 100 characters
+                                    var start = first_occur - 20;
+                                    var end = first_occur + 80;
+                                    if (start < 0) {
+                                        start = 0;
+                                    }
+                                    if (start == 0) {
+                                        end = 100;
+                                    }
+                                    if (end > content.length) {
+                                        end = content.length;
+                                    }
+                                    var match_content = content.substring(start, end);
+                                    // highlight all keywords
+                                    keywords.forEach(function(keyword) {
+                                        var regS = new RegExp(keyword, "gi");
+                                        match_content = match_content.replace(regS, "<span class=\"search-keyword indigo lighten-2\">" + keyword + "</span>");
+                                    });
+
+                                    str += "<p class=\"search-result\">..." + match_content + "...</p>"
+                                }
+                                str += "</li>";
+                            }
+                        });
+                        str += "</ul>";
+                        $resultContent.innerHTML = str;
+                    });
+                }
+            });
+        }
+    })(jQuery);
+</script>
+
+
+<script src="/js/prettify.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("pre").addClass("prettyprint");
+        prettyPrint();
+    });
+</script>
+
+
+
+
+<script type="text/javascript" src="http://tajs.qq.com/stats?sId=63695978" charset="UTF-8"></script>
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+});
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+
+</body>
+</html>
